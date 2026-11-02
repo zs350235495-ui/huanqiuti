@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOMAIN = 'https://huanqiuti.com';
+const DOMAIN = 'https://huanqiutigw.com';
 
 const pages = [
   'index.html',

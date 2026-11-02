@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const HOST = 'huanqiuti.com';
+const HOST = 'huanqiutigw.com';
 const API_KEY = '08409758e1432c61a0b625f235bf6c90';
 const KEY_LOCATION = `https://${HOST}/${API_KEY}.txt`;
 const SITEMAP_PATH = path.join(__dirname, 'sitemap.xml');
