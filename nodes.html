@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026全球边缘节点拓扑分布与IEPL专线机房看板 | 环球梯</title>
-  <meta name="description" content="环球梯2026全球边缘节点网络分布与基础设施看板，收录香港、日本、新加坡、美国硅谷等亚太及欧美核心边缘机房与物理专线。全节点标配住宅原生IP与多线BGP容灾路由，为游戏联机、高清流媒体及大模型提供零丢包低延迟服务。">
-  <meta name="keywords" content="环球梯节点, 节点拓扑, IEPL专线机房, 香港专线, 日本专线, 美国原生住宅IP, 机场测速">
+  <title>2026港台新日美骨干节点网络与IEPL内网专线拓扑 | 环球梯</title>
+  <meta name="description" content="环球梯官方全球节点网络布局架构中心。深度覆盖中国香港、中国台湾、新加坡、日本东京与美国五大核心骨干枢纽，全链路提供双向IEPL企业物理专线、原生住宅IP全绿解锁及低延迟直连拓扑，全面保障全天候晚高峰零丢包与高可用加速体验。">
+  <meta name="keywords" content="环球梯节点, 港台新日美专线, 香港IEPL, 台湾节点, 日本专线, 美国住宅IP, 节点网络拓扑">
   <link rel="canonical" href="https://huanqiuti.com/nodes.html" />
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,6 +23,7 @@
       background: rgba(18, 22, 43, 0.65);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .glass-card:hover {
       border-color: rgba(6, 182, 212, 0.35);
@@ -67,7 +68,7 @@
         <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
           TG 官方群
         </a>
-        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
           立即开通
         </a>
       </div>
@@ -75,251 +76,467 @@
   </header>
 
   <main class="flex-grow">
-    <!-- 2. Hero 标语区 -->
-    <section class="relative pt-12 pb-10 text-center">
+    <!-- 2. Hero 概览仪表盘区 -->
+    <section class="relative pt-12 pb-12 text-center">
       <div class="max-w-5xl mx-auto px-4">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 mb-4">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          2026 全球 30+ 原生机房与企业级 IEPL 专线拓扑
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 mb-4 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          2026 港台新日美企业专线与全域网络拓扑
         </span>
         <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          全球边缘节点与 <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">低延迟物理专线</span>
+          全球 5 大黄金核心节点与 <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">IEPL 物理专线拓扑</span>
         </h1>
-        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-          全线部署 BGP 多线入网与直连海底光缆，结合高纯度住宅原生 IP 库，晚高峰丢包率恒定 0.00%。
+        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+          环球梯核心骨干网络深度聚焦于亚太与美洲五大核心接入枢纽，全链路部署双向物理企业内网专线与真实住宅原生 IP，晚高峰丢包率恒定小于 0.1%。
         </p>
+
+        <!-- 顶部概览仪表盘 4 大指标 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-10">
+          <div class="glass-card rounded-2xl p-5 text-center">
+            <div class="text-2xl sm:text-3xl font-black text-cyan-400 font-mono">5 大</div>
+            <div class="text-xs sm:text-sm font-bold text-white mt-1">全球核心接入枢纽</div>
+            <div class="text-[11px] text-slate-400 mt-1">港 / 台 / 新 / 日 / 美</div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 text-center">
+            <div class="text-2xl sm:text-3xl font-black text-pink-400 font-mono">60+</div>
+            <div class="text-xs sm:text-sm font-bold text-white mt-1">冗余备份边缘集群</div>
+            <div class="text-[11px] text-slate-400 mt-1">Active-Active 热备容灾</div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 text-center">
+            <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">99.99%</div>
+            <div class="text-xs sm:text-sm font-bold text-white mt-1">SLA 在线可用性</div>
+            <div class="text-[11px] text-slate-400 mt-1">毫秒级故障智能自愈</div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 text-center">
+            <div class="text-2xl sm:text-3xl font-black text-purple-400 font-mono">物理级</div>
+            <div class="text-xs sm:text-sm font-bold text-white mt-1">IEPL 内网专线</div>
+            <div class="text-[11px] text-slate-400 mt-1">纯裸纤直通零公网拥塞</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 3. 核心节点矩阵看板 -->
+    <!-- 3. 港、台、新、日、美 5 大黄金核心节点详细卡片 -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-8">
 
-        <!-- 节点 1: 香港 IEPL -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇭🇰</span>
+        <!-- 节点 1: 中国香港 (Hong Kong) -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-4">
+              <span class="text-4xl p-2 rounded-2xl bg-white/5 border border-white/10 shadow-inner">🇭🇰</span>
               <div>
-                <h3 class="text-lg font-bold text-white">香港 IEPL 专线 01~04</h3>
-                <span class="text-xs text-slate-400">HKT / PCCW / 原生香港住宅 IP</span>
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-white">中国香港</h2>
+                  <span class="text-xs font-mono text-cyan-400 font-semibold">Hong Kong SAR</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    Operational 运行中
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">
+                  线路类型：<span class="text-slate-200 font-medium">IEPL 极速企业内网专线 / 纯物理光纤直连 (HKT / PCCW / HKIX 核心机房)</span>
+                </div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.99%</span>
+
+            <!-- 性能条 -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 bg-white/[0.03] p-3 rounded-2xl border border-white/5 text-center">
+              <div>
+                <div class="text-[11px] text-slate-400">平均时延</div>
+                <div class="text-lg sm:text-xl font-bold text-emerald-400 font-mono">8 ~ 18 ms</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">晚高峰丢包</div>
+                <div class="text-lg sm:text-xl font-bold text-slate-200 font-mono">&lt; 0.1%</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">集群冗余带宽</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">10Gbps+</div>
+              </div>
+            </div>
           </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/5">
             <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-emerald-400">18 ms</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-cyan-400">★</span> 核心优势
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                华南及沿海毫秒级直达，首包秒开无感加载。原生住宅 IP 完美解锁港区 TVB Anywhere、Netflix HK、Disney+ 及 ViuTV 本地片库。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">2.5 Gbps</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-pink-400">★</span> 适用场景
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                日常主力首选极速网页浏览、4K/8K 极致超清视频串流、跨国企业移动办公与即时通讯加速。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-purple-400">★</span> 支持协议
+              </div>
+              <p class="text-xs font-mono text-slate-300 leading-relaxed">
+                VLESS / Trojan / Shadowsocks / BBRv3 拥塞控制
+              </p>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mb-4">大湾区及华南首选极速节点，无感毫秒级响应，完美解锁港区 Netflix、Disney+ 与 TVB。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">Shadowsocks</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">VLESS-Reality</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">原生流媒体解锁</span>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-400 font-semibold border border-white/5">[IEPL专线]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-400 font-semibold border border-white/5">[原生住宅IP]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-400 font-semibold border border-white/5">[流媒体全解锁]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-400 font-semibold border border-white/5">[ChatGPT/AI就绪]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">[UDP全穿透]</span>
+            </div>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 shadow-md transition-all text-center">
+              立即开通香港专线 ↗
+            </a>
           </div>
         </div>
 
-        <!-- 节点 2: 日本东京专线 -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇯🇵</span>
+        <!-- 节点 2: 中国台湾 (Taiwan) -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-4">
+              <span class="text-4xl p-2 rounded-2xl bg-white/5 border border-white/10 shadow-inner">🇹🇼</span>
               <div>
-                <h3 class="text-lg font-bold text-white">日本东京 IEPL 01~03</h3>
-                <span class="text-xs text-slate-400">NTT / SoftBank / 原生东京住宅 IP</span>
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-white">中国台湾</h2>
+                  <span class="text-xs font-mono text-cyan-400 font-semibold">Taiwan</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    Operational 运行中
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">
+                  线路类型：<span class="text-slate-200 font-medium">IEPL 专线直连 / 中华电信 HiNet 骨干路由深度优化</span>
+                </div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.98%</span>
+
+            <!-- 性能条 -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 bg-white/[0.03] p-3 rounded-2xl border border-white/5 text-center">
+              <div>
+                <div class="text-[11px] text-slate-400">平均时延</div>
+                <div class="text-lg sm:text-xl font-bold text-emerald-400 font-mono">25 ~ 35 ms</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">晚高峰丢包</div>
+                <div class="text-lg sm:text-xl font-bold text-slate-200 font-mono">&lt; 0.1%</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">集群冗余带宽</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">10Gbps+</div>
+              </div>
+            </div>
           </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/5">
             <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-emerald-400">35 ms</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-cyan-400">★</span> 核心优势
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                直通台湾中华电信高质量住宅网络，完美解锁巴哈姆特动画疯、Line TV、KKTV、爱奇艺台湾站及 Netflix 繁体中文专属影视库。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">2.0 Gbps</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-pink-400">★</span> 适用场景
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                新番动漫同步追更、台服英雄联盟 / 特战英豪超低延迟游戏电竞加速、本土流媒体与学术访问。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-purple-400">★</span> 支持协议
+              </div>
+              <p class="text-xs font-mono text-slate-300 leading-relaxed">
+                VLESS / Trojan / Shadowsocks / BBRv3 拥塞控制
+              </p>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mb-4">华东及北方出海枢纽，极低抖动，日服手游电竞联机、DMM、AbemaTV 与 Niconico 专供。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">电竞低抖动</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">DMM 解锁</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">UDP FullCone</span>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-400 font-semibold border border-white/5">[IEPL专线]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-400 font-semibold border border-white/5">[原生住宅IP]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-400 font-semibold border border-white/5">[流媒体全解锁]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-400 font-semibold border border-white/5">[ChatGPT/AI就绪]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">[UDP全穿透]</span>
+            </div>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 shadow-md transition-all text-center">
+              立即开通台湾专线 ↗
+            </a>
           </div>
         </div>
 
-        <!-- 节点 3: 新加坡 IEPL -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇸🇬</span>
+        <!-- 节点 3: 新加坡 (Singapore) -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-4">
+              <span class="text-4xl p-2 rounded-2xl bg-white/5 border border-white/10 shadow-inner">🇸🇬</span>
               <div>
-                <h3 class="text-lg font-bold text-white">新加坡专线 01~02</h3>
-                <span class="text-xs text-slate-400">Singtel / AWS 东南亚核心节点</span>
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-white">新加坡</h2>
+                  <span class="text-xs font-mono text-cyan-400 font-semibold">Singapore</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    Operational 运行中
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">
+                  线路类型：<span class="text-slate-200 font-medium">IEPL 专线 / 东南亚核心边缘枢纽 (Singtel / AWS Direct Connect 专有光纤)</span>
+                </div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.99%</span>
+
+            <!-- 性能条 -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 bg-white/[0.03] p-3 rounded-2xl border border-white/5 text-center">
+              <div>
+                <div class="text-[11px] text-slate-400">平均时延</div>
+                <div class="text-lg sm:text-xl font-bold text-emerald-400 font-mono">30 ~ 42 ms</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">晚高峰丢包</div>
+                <div class="text-lg sm:text-xl font-bold text-slate-200 font-mono">&lt; 0.1%</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">集群冗余带宽</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">10Gbps+</div>
+              </div>
+            </div>
           </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/5">
             <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-emerald-400">48 ms</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-cyan-400">★</span> 核心优势
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                双向 BGP 智能容灾调度，极佳的国际出口互联能力。TikTok 东南亚出海与跨境电商首选，原生纯净 IP 杜绝关联封号。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">1.8 Gbps</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-pink-400">★</span> 适用场景
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Shopee / Lazada 店铺后台稳定运营、TikTok 东南亚跨境短视频带货与直播推流、东南亚亚服游戏联机。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-purple-400">★</span> 支持协议
+              </div>
+              <p class="text-xs font-mono text-slate-300 leading-relaxed">
+                VLESS / Trojan / Shadowsocks / BBRv3 拥塞控制
+              </p>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mb-4">东南亚金融与科技枢纽，支持 TikTok 跨境电商店铺管理、Grab 与东南亚流媒体。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">TikTok 运营</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">金融低风控</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">双向 IEPL</span>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-400 font-semibold border border-white/5">[IEPL专线]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-400 font-semibold border border-white/5">[原生住宅IP]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-400 font-semibold border border-white/5">[流媒体全解锁]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-400 font-semibold border border-white/5">[ChatGPT/AI就绪]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">[UDP全穿透]</span>
+            </div>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 shadow-md transition-all text-center">
+              立即开通新加坡专线 ↗
+            </a>
           </div>
         </div>
 
-        <!-- 节点 4: 美国硅谷住宅原生 -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇺🇸</span>
+        <!-- 节点 4: 日本 (Japan) -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-4">
+              <span class="text-4xl p-2 rounded-2xl bg-white/5 border border-white/10 shadow-inner">🇯🇵</span>
               <div>
-                <h3 class="text-lg font-bold text-white">美国硅谷原生 01~04</h3>
-                <span class="text-xs text-slate-400">AT&T / Comcast 原生住宅纯净 IP</span>
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-white">日本</h2>
+                  <span class="text-xs font-mono text-cyan-400 font-semibold">Japan</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    Operational 运行中
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">
+                  线路类型：<span class="text-slate-200 font-medium">IEPL 专线 / 东京与大阪双机房热备冗余 (NTT / SoftBank / KDDI)</span>
+                </div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.95%</span>
+
+            <!-- 性能条 -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 bg-white/[0.03] p-3 rounded-2xl border border-white/5 text-center">
+              <div>
+                <div class="text-[11px] text-slate-400">平均时延</div>
+                <div class="text-lg sm:text-xl font-bold text-emerald-400 font-mono">28 ~ 38 ms</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">晚高峰丢包</div>
+                <div class="text-lg sm:text-xl font-bold text-slate-200 font-mono">&lt; 0.1%</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">集群冗余带宽</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">10Gbps+</div>
+              </div>
+            </div>
           </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/5">
             <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-cyan-400">128 ms</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-cyan-400">★</span> 核心优势
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                极低抖动（Jitter &lt; 0.5ms），真实原生住宅级 IP，完美解锁 DMM、AbemaTV、Hulu Japan、TVer、Niconico 及日服赛马娘手游。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">3.0 Gbps</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-pink-400">★</span> 适用场景
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                外服游戏超低抖动电竞联机、二次元日区高画质流媒体串流、日本乐天与亚马逊日区电商系统开发运营。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-purple-400">★</span> 支持协议
+              </div>
+              <p class="text-xs font-mono text-slate-300 leading-relaxed">
+                VLESS / Trojan / Shadowsocks / BBRv3 拥塞控制
+              </p>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mb-4">专为 AI 科研设计，100% 解锁 OpenAI ChatGPT 4o、Claude 3.5 Sonnet 及 Midjourney，告别风控封号。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">ChatGPT 零风控</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">Claude 解锁</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">住宅 Residential</span>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-400 font-semibold border border-white/5">[IEPL专线]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-400 font-semibold border border-white/5">[原生住宅IP]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-400 font-semibold border border-white/5">[流媒体全解锁]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-400 font-semibold border border-white/5">[ChatGPT/AI就绪]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">[UDP全穿透]</span>
+            </div>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 shadow-md transition-all text-center">
+              立即开通日本专线 ↗
+            </a>
           </div>
         </div>
 
-        <!-- 节点 5: 台湾彰化专线 -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇹🇼</span>
+        <!-- 节点 5: 美国 (United States) -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/5">
+            <div class="flex items-center gap-4">
+              <span class="text-4xl p-2 rounded-2xl bg-white/5 border border-white/10 shadow-inner">🇺🇸</span>
               <div>
-                <h3 class="text-lg font-bold text-white">台湾彰化专线 01~02</h3>
-                <span class="text-xs text-slate-400">HiNet 中华电信 / 原生台湾 IP</span>
+                <div class="flex items-center gap-3">
+                  <h2 class="text-2xl font-bold text-white">美国</h2>
+                  <span class="text-xs font-mono text-cyan-400 font-semibold">United States</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    Operational 运行中
+                  </span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1">
+                  线路类型：<span class="text-slate-200 font-medium">中美高带宽 IEPL 专线 / 美西圣何塞与美东直连海缆 (AT&T / Comcast / HE)</span>
+                </div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.99%</span>
-          </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
-            <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-emerald-400">28 ms</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">1.5 Gbps</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
-            </div>
-          </div>
-          <p class="text-xs text-slate-400 mb-4">支持动画疯 (Bahamut)、Line TV、台服英雄联盟/特战英豪等超低延迟游戏电竞。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">巴哈姆特解锁</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">HiNet 骨干</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">游戏加速</span>
-          </div>
-        </div>
 
-        <!-- 节点 6: 英国伦敦与法兰克福 -->
-        <div class="glass-card rounded-2xl p-6 relative">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <span class="text-2xl">🇬🇧</span>
+            <!-- 性能条 -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 bg-white/[0.03] p-3 rounded-2xl border border-white/5 text-center">
               <div>
-                <h3 class="text-lg font-bold text-white">欧洲核心专线 (英德)</h3>
-                <span class="text-xs text-slate-400">London Vodafone / Frankfurt DTAG</span>
+                <div class="text-[11px] text-slate-400">平均时延</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">125 ~ 140 ms</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">晚高峰丢包</div>
+                <div class="text-lg sm:text-xl font-bold text-slate-200 font-mono">&lt; 0.1%</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">集群冗余带宽</div>
+                <div class="text-lg sm:text-xl font-bold text-cyan-400 font-mono">10Gbps+</div>
               </div>
             </div>
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">在线 99.97%</span>
           </div>
-          <div class="grid grid-cols-3 gap-3 my-4 py-3 bg-white/[0.02] rounded-xl border border-white/5 text-center">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-b border-white/5">
             <div>
-              <div class="text-xs text-slate-400">平均延迟</div>
-              <div class="text-base font-bold text-cyan-400">145 ms</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-cyan-400">★</span> 核心优势
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                千兆独享跨洋大带宽，商业级原生超纯净家庭住宅 IP 池，全绿无阻碍解锁 ChatGPT-5、Claude 3.5 Sonnet、Midjourney 及 OpenAI 开发者 API。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">专线带宽</div>
-              <div class="text-base font-bold text-cyan-400">1.5 Gbps</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-pink-400">★</span> 适用场景
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                新一代 AI 生产力大模型高效推理、海外跨国科研论文文献拉取、跨境技术协同开发、美区流媒体原生畅享。
+              </p>
             </div>
             <div>
-              <div class="text-xs text-slate-400">丢包率</div>
-              <div class="text-base font-bold text-slate-200">0.00%</div>
+              <div class="text-xs font-bold text-white mb-2 flex items-center gap-1.5">
+                <span class="text-purple-400">★</span> 支持协议
+              </div>
+              <p class="text-xs font-mono text-slate-300 leading-relaxed">
+                VLESS / Trojan / Shadowsocks / BBRv3 拥塞控制
+              </p>
             </div>
           </div>
-          <p class="text-xs text-slate-400 mb-4">欧洲学术论文下载、BBC iPlayer 解锁、欧洲跨境电商卖家后台直连专用网络。</p>
-          <div class="flex flex-wrap gap-2 text-[10px]">
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">BBC 解锁</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">欧洲 GDPR 合规</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300">双向光缆</span>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-pink-400 font-semibold border border-white/5">[IEPL专线]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-purple-400 font-semibold border border-white/5">[原生住宅IP]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-cyan-400 font-semibold border border-white/5">[流媒体全解锁]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-emerald-400 font-semibold border border-white/5">[ChatGPT/AI就绪]</span>
+              <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">[UDP全穿透]</span>
+            </div>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 shadow-md transition-all text-center">
+              立即开通美国专线 ↗
+            </a>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- 4. 技术架构特色 -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-white/5">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="text-2xl font-bold text-white">企业级专线与多路容灾架构</h2>
-        <p class="text-xs text-slate-400 mt-2">不仅快，更具备电信级抗灾与故障自愈能力</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-card rounded-xl p-6">
-          <div class="text-cyan-400 font-black text-lg mb-2">01. 物理层 IEPL 专线直达</div>
-          <p class="text-xs text-slate-400 leading-relaxed">完全脱离普通公网国际出口，不受晚高峰国际出口拥堵影响，丢包率降低至 0.00%，端到端时延波动小于 1ms。</p>
-        </div>
-        <div class="glass-card rounded-xl p-6">
-          <div class="text-pink-400 font-black text-lg mb-2">02. Anycast BGP 多线智能调度</div>
-          <p class="text-xs text-slate-400 leading-relaxed">入口采用电信、联通、移动三网 BGP 接入，智能探测用户所在地最优运营商网络，秒级切换无感知。</p>
-        </div>
-        <div class="glass-card rounded-xl p-6">
-          <div class="text-purple-400 font-black text-lg mb-2">03. 动态住宅原生 IP 轮换</div>
-          <p class="text-xs text-slate-400 leading-relaxed">出站节点采用高纯度真实住宅宽带原生 IP，告别数据中心广播 IP 的批量拉黑，保障大模型与流媒体长期稳定。</p>
+    <!-- 4. 底部转化引导 Banner -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="relative rounded-3xl p-8 sm:p-12 overflow-hidden border border-cyan-500/30 bg-gradient-to-b from-[#101736]/90 to-[#080914]/90 shadow-[0_0_50px_rgba(6,182,212,0.2)] text-center">
+        <div class="absolute -top-24 -left-24 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 mb-4">
+            全节点极速就绪 · 秒级开通
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            即刻接入港台新日美全专线高速集群，享受极致跨境网络体验
+          </h2>
+          <p class="text-xs sm:text-base text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed">
+            所有节点全线标配 IEPL 企业物理专线与纯净家庭住宅 IP，无隐藏超售，晚高峰丝滑如初。
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/35 hover:shadow-pink-500/50 hover:-translate-y-0.5 transition-all">
+              立即开通高速专线 →
+            </a>
+            <a href="pricing.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+              查看套餐价格矩阵
+            </a>
+          </div>
         </div>
       </div>
     </section>
