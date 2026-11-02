@@ -14,6 +14,8 @@ const pages = [
   'articles/index.html',
   'articles/iepl-vs-transit-performance-2026.html',
   'articles/chatgpt-claude-unlock-clean-ip-2026.html',
+  'articles/bbrv3-quic-throughput-optimization-2026.html',
+  'articles/udp-gaming-voice-mtu-tuning-2026.html',
   'status.html',
   'sitemap.html'
 ];
