@@ -1,0 +1,19 @@
+{
+  "name": "huanqiuti-official",
+  "version": "1.0.0",
+  "description": "环球梯 (Huanqiu Ladder) 2026 官方科技官网独立站",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node build.js"
+  },
+  "keywords": [
+    "huanqiuti",
+    "vpn",
+    "proxy",
+    "iepl",
+    "static-site",
+    "seo"
+  ],
+  "author": "Huanqiu Ladder Team",
+  "license": "MIT"
+}

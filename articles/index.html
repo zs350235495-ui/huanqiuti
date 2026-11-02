@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026跨境专线与原生IP网络技术深度实测专栏指南 | 环球梯</title>
+  <meta name="description" content="环球梯技术博客专栏收录多篇高水准网络工程评测报告，深入解析企业级专线物理拓扑、原生住宅纯净度侦测、新型拥塞算法实测与海外流媒体解锁机制，为您选型高质量网络节点服务提供真实客观的技术数据依据。">
+  <meta name="keywords" content="IEPL专线评测, 原生IP实测, 环球梯实测, 跨境网络丢包率, 2026网络加速评测, ChatGPT原生IP, 流媒体解锁">
+  <link rel="canonical" href="https://huanqiuti.com/articles/" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo-link">
+        <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+        <span class="brand-title">环球梯</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="/">首页</a></li>
+          <li class="nav-item"><a href="/#nodes">节点网络</a></li>
+          <li class="nav-item"><a href="/#pricing">套餐方案</a></li>
+          <li class="nav-item"><a href="/tutorials/">官方教程</a></li>
+          <li class="nav-item active"><a href="/articles/">技术实测</a></li>
+          <li class="nav-item"><a href="/status.html">服务状态</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 专栏 Hero -->
+  <section class="hero-section" style="padding: 3.5rem 0 2rem;">
+    <div class="container">
+      <div class="hero-badge-pill">
+        <span>🔬 硬核数据 · 真实复现 · 拒绝营销夸大</span>
+      </div>
+      <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
+        跨境网络工程与节点深度实测专栏
+      </h1>
+      <p class="hero-desc">
+        环球梯网络评测实验室基于 MTR 多径路由追踪、iperf3 物理打流与多平台风控探测工具，为您呈现真实客观的跨境传输基准。
+      </p>
+    </div>
+  </section>
+
+  <!-- 实测文章列表 -->
+  <main class="container" style="padding-bottom: 5rem;">
+    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 920px; margin: 0 auto;">
+      
+      <!-- 文章 1 -->
+      <article class="glass-panel" style="padding: 2.25rem; border-radius: 1.25rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3);">专线性能评测</span>
+          <span style="color: #64748b; font-size: 0.85rem;">2026-11-02 · 环球梯网络评测实验室</span>
+        </div>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.4;">
+          <a href="/articles/iepl-vs-transit-performance-2026.html" style="color: #ffffff; text-decoration: none;">
+            2026跨境专线IEPL与普通公网中转丢包实测对比 | 环球梯
+          </a>
+        </h2>
+        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">
+          长达 7 天连续 20:30~23:00 晚高峰全链路压测，详细对比端到端物理 IEPL 二层专线与普通公共中转在不同运营商（电信 163、联通 169、移动 CMI）下的丢包率、首包 RTT 抖动方差与 8K 蓝光流媒体卡顿耗时，附完整监控数据对比矩阵。
+        </p>
+        <div>
+          <a href="/articles/iepl-vs-transit-performance-2026.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">
+            阅读 2000 字完整技术报告 →
+          </a>
+        </div>
+      </article>
+
+      <!-- 文章 2 -->
+      <article class="glass-panel" style="padding: 2.25rem; border-radius: 1.25rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3);">IP纯净度与安全</span>
+          <span style="color: #64748b; font-size: 0.85rem;">2026-11-02 · 环球梯风控对抗组</span>
+        </div>
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.4;">
+          <a href="/articles/chatgpt-claude-unlock-clean-ip-2026.html" style="color: #ffffff; text-decoration: none;">
+            2026外服流媒体与AI工具原生IP纯净度实测解析 | 环球梯
+          </a>
+        </h2>
+        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">
+          全面拆解 OpenAI、Anthropic Claude 与 Netflix 等主流服务在 2026 年升级的 ASN 属性分析、IP 欺诈评分（Scamalytics Fraud Score）及住宅家庭宽带与机房 Hosting IP 的本质差别，揭开原生住宅干净 IP 的技术门槛。
+        </p>
+        <div>
+          <a href="/articles/chatgpt-claude-unlock-clean-ip-2026.html" class="btn btn-cyan" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">
+            阅读技术深度剖析 →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- 页脚 Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo-link">
+            <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+            <span class="brand-title">环球梯</span>
+          </a>
+          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+        </div>
+        <div class="footer-col">
+          <h4>产品矩阵</h4>
+          <ul class="footer-nav">
+            <li><a href="/#pricing">周期订阅方案</a></li>
+            <li><a href="/#pricing">不限时流量包</a></li>
+            <li><a href="/status.html">实时服务看板</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>教程与支持</h4>
+          <ul class="footer-nav">
+            <li><a href="/tutorials/">全平台教程中心</a></li>
+            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
+            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="/articles/">技术实测专栏</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>官方社区与索引</h4>
+          <ul class="footer-nav">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
+            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
+        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

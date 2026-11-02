@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026全球骨干专线节点实时网络延迟监控看板指南 | 环球梯</title>
+  <meta name="description" content="环球梯全球骨干边缘节点实时监控看板，每分钟主动侦测香港、台湾、新加坡、日本与美国等60余处核心机房的接入延迟、丢包率与可用性指标，为您提供全天候透明公开的高可用网络服务运行状态与质量数据。">
+  <meta name="keywords" content="环球梯节点状态, 节点延迟监控, IEPL专线丢包率, 实时网络看板, 机场节点运行状态, 科学上网服务器状态">
+  <link rel="canonical" href="https://huanqiuti.com/status.html" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo-link">
+        <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+        <span class="brand-title">环球梯</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="/">首页</a></li>
+          <li class="nav-item"><a href="/#nodes">节点网络</a></li>
+          <li class="nav-item"><a href="/#pricing">套餐方案</a></li>
+          <li class="nav-item"><a href="/tutorials/">官方教程</a></li>
+          <li class="nav-item"><a href="/articles/">技术实测</a></li>
+          <li class="nav-item active"><a href="/status.html">服务状态</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 状态看板 Hero -->
+  <section class="hero-section" style="padding: 3.5rem 0 2rem;">
+    <div class="container">
+      <div class="hero-badge-pill" style="border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); color: #34d399;">
+        <span class="status-dot" style="margin-right: 0.25rem;"></span>
+        <span>全部边缘专线集群运转正常 · 99.99% SLA</span>
+      </div>
+      <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
+        全球骨干节点实时延迟与服务健康看板
+      </h1>
+      <p class="hero-desc">
+        全天候 24 小时透明监控全球 60+ 物理 IEPL 机房接入质量、晚高峰丢包与 BBRv3 链路状态。
+      </p>
+    </div>
+  </section>
+
+  <!-- 状态概览横幅 -->
+  <main class="container" style="padding-bottom: 5rem;">
+    <div class="glass-panel" style="padding: 1.75rem 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div style="width: 3rem; height: 3rem; border-radius: 50%; background: rgba(16, 185, 129, 0.2); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #10b981;">
+          ✓
+        </div>
+        <div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: #ffffff;">所有系统均在最佳性能状态运行</div>
+          <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.25rem;">自动化健康探针每 60 秒轮询一次，过去 90 天整体可用率 99.99%</div>
+        </div>
+      </div>
+      <div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 0.4rem 0.8rem; border-radius: 0.5rem; border: 1px solid rgba(56, 189, 248, 0.25);">
+          上次刷新：刚刚
+        </span>
+      </div>
+    </div>
+
+    <!-- 节点实时列表 -->
+    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+      
+      <!-- 香港集群 -->
+      <div class="glass-panel" style="padding: 1.75rem 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🇭🇰</span>
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin: 0;">香港企业级专线集群 (HK-01 ~ HK-20)</h3>
+              <p style="color: #94a3b8; font-size: 0.825rem; margin: 0.2rem 0 0;">深港点对点内网物理二层直连 / 原生 ISP 干净 IP</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: #94a3b8;">丢包率：<strong style="color: #34d399;">0.00%</strong></span>
+            <span class="node-badge-ping live-ping" data-base-ping="18">18ms</span>
+          </div>
+        </div>
+        <!-- 90天运行条模拟 -->
+        <div style="display: flex; gap: 3px; height: 1.5rem; border-radius: 0.35rem; overflow: hidden; background: rgba(255,255,255,0.03);">
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+          <div style="flex: 1; background: #10b981;" title="正常运行 100%"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 0.4rem;">
+          <span>90 天前</span>
+          <span>可用性 100%</span>
+          <span>今日</span>
+        </div>
+      </div>
+
+      <!-- 台湾集群 -->
+      <div class="glass-panel" style="padding: 1.75rem 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🇹🇼</span>
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin: 0;">台湾寰宇枢纽集群 (TW-01 ~ TW-10)</h3>
+              <p style="color: #94a3b8; font-size: 0.825rem; margin: 0.2rem 0 0;">中华电信 HiNet 家庭宽带直连 / 巴哈姆特全绿解锁</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: #94a3b8;">丢包率：<strong style="color: #34d399;">0.00%</strong></span>
+            <span class="node-badge-ping live-ping" data-base-ping="32">32ms</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 3px; height: 1.5rem; border-radius: 0.35rem; overflow: hidden; background: rgba(255,255,255,0.03);">
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 0.4rem;">
+          <span>90 天前</span>
+          <span>可用性 100%</span>
+          <span>今日</span>
+        </div>
+      </div>
+
+      <!-- 新加坡集群 -->
+      <div class="glass-panel" style="padding: 1.75rem 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🇸🇬</span>
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin: 0;">新加坡狮城跃迁集群 (SG-01 ~ SG-10)</h3>
+              <p style="color: #94a3b8; font-size: 0.825rem; margin: 0.2rem 0 0;">亚太超低抖动专线 / 原生住宅家庭宽带 / TikTok 与 AI 专享</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: #94a3b8;">丢包率：<strong style="color: #34d399;">0.00%</strong></span>
+            <span class="node-badge-ping live-ping" data-base-ping="45">45ms</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 3px; height: 1.5rem; border-radius: 0.35rem; overflow: hidden; background: rgba(255,255,255,0.03);">
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 0.4rem;">
+          <span>90 天前</span>
+          <span>可用性 100%</span>
+          <span>今日</span>
+        </div>
+      </div>
+
+      <!-- 日本集群 -->
+      <div class="glass-panel" style="padding: 1.75rem 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🇯🇵</span>
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin: 0;">日本樱云专线集群 (JP-01 ~ JP-10)</h3>
+              <p style="color: #94a3b8; font-size: 0.825rem; margin: 0.2rem 0 0;">沪日海底光纤专线直连 / DMM 与外服游戏联机低延迟</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: #94a3b8;">丢包率：<strong style="color: #34d399;">0.00%</strong></span>
+            <span class="node-badge-ping live-ping" data-base-ping="36">36ms</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 3px; height: 1.5rem; border-radius: 0.35rem; overflow: hidden; background: rgba(255,255,255,0.03);">
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 0.4rem;">
+          <span>90 天前</span>
+          <span>可用性 100%</span>
+          <span>今日</span>
+        </div>
+      </div>
+
+      <!-- 美国集群 -->
+      <div class="glass-panel" style="padding: 1.75rem 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.75rem;">🇺🇸</span>
+            <div>
+              <h3 style="font-size: 1.15rem; color: #ffffff; margin: 0;">美国自由星链集群 (US-01 ~ US-10)</h3>
+              <p style="color: #94a3b8; font-size: 0.825rem; margin: 0.2rem 0 0;">硅谷纯正原生住宅 ISP 家庭宽带 / OpenAI & Claude 深度解锁</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-size: 0.85rem; color: #94a3b8;">丢包率：<strong style="color: #34d399;">0.00%</strong></span>
+            <span class="node-badge-ping live-ping" data-base-ping="118">118ms</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 3px; height: 1.5rem; border-radius: 0.35rem; overflow: hidden; background: rgba(255,255,255,0.03);">
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+          <div style="flex: 1; background: #10b981;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 0.4rem;">
+          <span>90 天前</span>
+          <span>可用性 100%</span>
+          <span>今日</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部开通引导 -->
+    <div style="margin-top: 3.5rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 1.25rem; text-align: center;">
+      <h3 style="color: #ffffff; font-size: 1.35rem; margin-bottom: 0.5rem;">想要获得如此稳定的高可用专线加速体验？</h3>
+      <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem;">输入专属循环 7 折优惠码 <strong style="color: #f472b6;">HQ66</strong>，开启企业级高可用原生加速网络。</p>
+      <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary" style="padding: 0.75rem 2rem;">
+        立即开通环球梯高可用节点 →
+      </a>
+    </div>
+  </main>
+
+  <!-- 页脚 Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo-link">
+            <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+            <span class="brand-title">环球梯</span>
+          </a>
+          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+        </div>
+        <div class="footer-col">
+          <h4>产品矩阵</h4>
+          <ul class="footer-nav">
+            <li><a href="/#pricing">周期订阅方案</a></li>
+            <li><a href="/#pricing">不限时流量包</a></li>
+            <li><a href="/status.html">实时服务看板</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>教程与支持</h4>
+          <ul class="footer-nav">
+            <li><a href="/tutorials/">全平台教程中心</a></li>
+            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
+            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="/articles/">技术实测专栏</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>官方社区与索引</h4>
+          <ul class="footer-nav">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
+            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
+        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

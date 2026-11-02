@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026全平台ClashVerge订阅导入与分流配置指南 | 环球梯</title>
+  <meta name="description" content="环球梯2026官方权威指南，详细图文介绍桌面平台客户端的订阅链接导入、轻量内核切换、国内直连与国外分流规则配置，帮助新手用户快速排除晚高峰域名解析污染和加密握手超时问题，轻松保障日常使用稳定。">
+  <meta name="keywords" content="Clash Verge, Clash Verge教程, Mihomo内核, TUN模式, 环球梯订阅, 科学上网配置, 规则分流, DNS防污染">
+  <link rel="canonical" href="https://huanqiuti.com/tutorials/clash-verge.html" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo-link">
+        <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+        <span class="brand-title">环球梯</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="/">首页</a></li>
+          <li class="nav-item"><a href="/#nodes">节点网络</a></li>
+          <li class="nav-item"><a href="/#pricing">套餐方案</a></li>
+          <li class="nav-item active"><a href="/tutorials/">官方教程</a></li>
+          <li class="nav-item"><a href="/articles/">技术实测</a></li>
+          <li class="nav-item"><a href="/status.html">服务状态</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 文章正文主体 -->
+  <main class="container">
+    <article class="article-container">
+      <header class="article-header">
+        <div style="font-size: 0.85rem; color: #f472b6; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="/tutorials/" style="color: #f472b6; text-decoration: none;">← 返回教程索引</a> / 桌面端实战指南
+        </div>
+        <h1 style="font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 800; color: #ffffff; line-height: 1.3;">
+          2026 全平台 Clash Verge 订阅导入与分流配置指南
+        </h1>
+        <div class="article-meta">
+          <span>📅 更新时间：2026-11-02</span>
+          <span>✍️ 作者：环球梯技术支持组</span>
+          <span>⏱️ 阅读时长：约 6 分钟</span>
+          <span style="color: #38bdf8;">🏷️ 标签：Clash Verge, TUN 模式, 分流规则</span>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>
+          进入 2026 年，随着原 Clash for Windows 项目的归档，基于开源 Tauri 框架重构并搭载 <strong>Mihomo (Clash.Meta)</strong> 内核的 <strong>Clash Verge Rev</strong> 已成为 Windows 与 macOS 平台公认的桌面级主力利器。它不仅拥有更轻量的系统内存占用与现代化毛玻璃 UI，更原生支持最新的 VLESS、Hysteria 2 协议以及高效低开销的 TUN 虚拟网卡模式。
+        </p>
+
+        <p>
+          本指南将手把手演示如何在全新电脑上安装 Clash Verge、一键导入环球梯高速 IEPL 订阅、配置国内国外智能分流，以及彻底解决晚高峰 DNS 污染和部分软件无法代理的疑难杂症。
+        </p>
+
+        <h2>第一步：客户端准备与环境确认</h2>
+        <p>
+          在开始配置之前，请确保从官方正规开源仓库下载最新版本的 Clash Verge Rev 安装包（支持 Windows x64/ARM64 及 macOS Apple Silicon/Intel 芯片）。
+        </p>
+        <blockquote>
+          <strong>💡 关键前置要求：</strong><br>
+          安装完毕后，请务必前往 Windows/Mac 的“系统设置 → 日期与时间”，检查并开启“自动设置时间”。加密专线采用严格的 TLS 握手认证，若本地时间与真实时间偏差超过 60 秒，将导致节点批量超时不可用。
+        </blockquote>
+
+        <h2>第二步：获取并导入环球梯高速订阅</h2>
+        <p>
+          环球梯为所有付费用户提供全自动订阅转换与托管服务，您可以根据使用习惯选择以下两种导入方式之一：
+        </p>
+        <ol>
+          <li>
+            <strong>方式 A（推荐，一键导入）：</strong> 打开浏览器访问并登录 <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer">环球梯官网控制台</a>，在仪表盘首页的“便捷导入”区域点击“导入到 Clash”，浏览器会自动弹出并调用 Clash Verge 客户端完成解析与保存。
+          </li>
+          <li>
+            <strong>方式 B（手动复制订阅链接）：</strong> 在仪表盘点击“复制订阅地址”。打开 Clash Verge，点击左侧菜单栏的 <code>订阅 (Profiles)</code>，在顶部输入框中粘贴您的环球梯专属订阅 URL，然后点击 <code>导入 (Import)</code> 按钮。
+          </li>
+        </ol>
+        <p>
+          导入成功后，列表中会出现名为 <code>环球梯 - 高速专线</code> 的订阅卡片。右键点击该卡片，建议勾选 <strong>“定时更新 (Auto Update)”</strong> 并将周期设置为 <code>720 分钟 (12小时)</code>，确保随时获取最新的优化专线入口与故障漂移节点。
+        </p>
+
+        <h2>第三步：核心路由分流模式解析</h2>
+        <p>
+          点击左侧菜单的 <code>代理 (Proxies)</code>，顶部会展示四种核心运行模式，请务必知悉它们的应用场景：
+        </p>
+        <ul>
+          <li>
+            <strong>规则模式 (Rule，强烈推荐)：</strong> 智能路由器模式。访问国内网站（百度、微信、淘宝、B站等）时走本地直连，不消耗套餐流量；访问境外服务（Google、YouTube、ChatGPT、Netflix 等）自动经由环球梯 IEPL 物理专线加速。日常使用请始终保持此模式。
+          </li>
+          <li>
+            <strong>全局模式 (Global)：</strong> 设备上的所有网络连接全部强制经过代理节点。通常仅在进行特定网络调试、排查特定外服游戏锁区时临时启用。
+          </li>
+          <li>
+            <strong>直连模式 (Direct)：</strong> 绕过所有代理，纯本地公网直连。
+          </li>
+          <li>
+            <strong>脚本模式 (Script)：</strong> 进阶玩家编写 JavaScript 进行自定义请求转发，普通用户无需开启。
+          </li>
+        </ul>
+
+        <h2>第四步：开启 TUN 模式接管系统级流量</h2>
+        <p>
+          许多新手用户反馈：浏览器能够正常打开外网，但 Windows 终端 (cmd/powershell)、Git 命令行、部分游戏客户端或 Microsoft Store 应用却无法联网。这是因为传统系统代理仅接管了 HTTP/Socks5 端口，对底层 TCP/UDP 流量无能为力。
+        </p>
+        <p>
+          <strong>解决方案：开启 TUN 虚拟网卡模式</strong>
+        </p>
+        <ol>
+          <li>点击左侧 <code>设置 (Settings)</code> 菜单。</li>
+          <li>找到 <code>TUN 模式 (Tun Mode)</code> 选项，如果首次开启，请点击旁边的“安装服务模式 (Service Mode)”驱动。</li>
+          <li>驱动安装成功后，将 <code>TUN 模式</code> 的开关拨至开启状态（绿色）。</li>
+          <li>此时 Clash Verge 会在系统内核级虚拟一张网络适配器，实现 100% 完整接管所有软件的境外数据传输，包括各类 AI 客户端与外服多人对战联机。</li>
+        </ol>
+
+        <h2>第五步：节点选择与延迟优选技巧</h2>
+        <p>
+          在 <code>代理 (Proxies)</code> 页面中，展开名为 <code>节点选择 (PROXY)</code> 或 <code>环球梯</code> 的策略组。环球梯节点采用全球统一命名规范：
+        </p>
+        <div class="comparison-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>节点组名称</th>
+                <th>核心物理拓扑</th>
+                <th>典型延迟</th>
+                <th>推荐最佳场景</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>香港 01~20 - 企业专线优选</strong></td>
+                <td>深港内网物理点对点二层直连</td>
+                <td class="highlight-col">15 ~ 25 ms</td>
+                <td>日常网页秒开、高清追剧、秒级响应</td>
+              </tr>
+              <tr>
+                <td><strong>台湾 01~10 - 寰宇枢纽</strong></td>
+                <td>中华电信原生家庭宽带</td>
+                <td class="highlight-col">30 ~ 38 ms</td>
+                <td>巴哈姆特动画疯、华语影院无风控</td>
+              </tr>
+              <tr>
+                <td><strong>新加坡 01~10 - 狮城跃迁</strong></td>
+                <td>亚太低抖动物理通道</td>
+                <td class="highlight-col">42 ~ 48 ms</td>
+                <td>TikTok 东南亚跨境、企业级开发交互</td>
+              </tr>
+              <tr>
+                <td><strong>日本 01~10 - 樱云专线</strong></td>
+                <td>沪日海缆物理专线</td>
+                <td class="highlight-col">32 ~ 40 ms</td>
+                <td>二次元游戏联机、DMM、Steam 日区</td>
+              </tr>
+              <tr>
+                <td><strong>美国 01~10 - 自由星链</strong></td>
+                <td>硅谷原生住宅 Clean IP</td>
+                <td class="highlight-col">115 ~ 130 ms</td>
+                <td>OpenAI ChatGPT、Claude、Midjourney 创作</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>常见故障快速自查排查</h2>
+        <ul>
+          <li><strong>Q：右下角测速全部为 Timeout 怎么办？</strong><br>首先检查时间同步；其次打开设置查看是否误启用了无效的外部系统代理；再次重启 Clash Verge 客户端更新订阅。</li>
+          <li><strong>Q：观看 Netflix 提示使用了代理工具？</strong><br>切换至 <code>新加坡-狮城跃迁</code> 或 <code>美国-自由星链</code> 节点。环球梯全节点配备原生住宅干净 IP，若偶尔遇到受限，只需切换同组备用节点即可立即恢复 4K 播放。</li>
+        </ul>
+
+        <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 1rem; text-align: center;">
+          <h3 style="color: #ffffff; font-size: 1.15rem; margin-top: 0;">尚未开通环球梯高速专线服务？</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0.5rem 0 1rem;">输入专属 7 折循环优惠码 <strong>HQ66</strong>，畅享 60+ 物理 IEPL 专线极致体验！</p>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通环球梯高速专线 →</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- 页脚 Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo-link">
+            <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+            <span class="brand-title">环球梯</span>
+          </a>
+          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+        </div>
+        <div class="footer-col">
+          <h4>产品矩阵</h4>
+          <ul class="footer-nav">
+            <li><a href="/#pricing">周期订阅方案</a></li>
+            <li><a href="/#pricing">不限时流量包</a></li>
+            <li><a href="/status.html">实时服务看板</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>教程与支持</h4>
+          <ul class="footer-nav">
+            <li><a href="/tutorials/">全平台教程中心</a></li>
+            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
+            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="/articles/">技术实测专栏</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>官方社区与索引</h4>
+          <ul class="footer-nav">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
+            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
+        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026小火箭Shadowrocket节点订阅与规则分流实战 | 环球梯</title>
+  <meta name="description" content="环球梯官方小火箭配置实战教程，全面涵盖苹果移动端节点订阅一键添加、智能路由分流策略选择、本地规则文件在线升级及证书解密配置，全面提升移动设备在蜂窝移动网络与无线切网环境下的无缝漫游稳定性体验。">
+  <meta name="keywords" content="小火箭教程, Shadowrocket, Shadowrocket订阅, iOS科学上网, 苹果小火箭配置, 规则分流, 环球梯小火箭">
+  <link rel="canonical" href="https://huanqiuti.com/tutorials/shadowrocket.html" />
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo-link">
+        <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+        <span class="brand-title">环球梯</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="/">首页</a></li>
+          <li class="nav-item"><a href="/#nodes">节点网络</a></li>
+          <li class="nav-item"><a href="/#pricing">套餐方案</a></li>
+          <li class="nav-item active"><a href="/tutorials/">官方教程</a></li>
+          <li class="nav-item"><a href="/articles/">技术实测</a></li>
+          <li class="nav-item"><a href="/status.html">服务状态</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 文章正文主体 -->
+  <main class="container">
+    <article class="article-container">
+      <header class="article-header">
+        <div style="font-size: 0.85rem; color: #f472b6; font-weight: 700; margin-bottom: 0.5rem;">
+          <a href="/tutorials/" style="color: #f472b6; text-decoration: none;">← 返回教程索引</a> / 移动端实战指南
+        </div>
+        <h1 style="font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 800; color: #ffffff; line-height: 1.3;">
+          2026 小火箭 Shadowrocket 节点订阅与规则分流实战
+        </h1>
+        <div class="article-meta">
+          <span>📅 更新时间：2026-11-02</span>
+          <span>✍️ 作者：环球梯移动网络工程部</span>
+          <span>⏱️ 阅读时长：约 5 分钟</span>
+          <span style="color: #38bdf8;">🏷️ 标签：Shadowrocket, iOS 小火箭, 规则分流</span>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>
+          在 iPhone 与 iPad 设备上，<strong>Shadowrocket（俗称“小火箭”）</strong>凭借极其轻量的内存开销、秒级冷启动速度以及对各种新型混淆协议的敏锐适配，长期稳居 iOS 加速生态首选地位。配合环球梯的高质量企业级 IEPL 专线，能够让移动端用户在日常出行、海外流媒体追剧以及移动 AI 对话中实现真正的“无感加速”。
+        </p>
+
+        <p>
+          本实战教程将指导您完成 Shadowrocket 的正确导入姿势、分流策略设置与省电抗断流优化。
+        </p>
+
+        <h2>准备工作：客户端获取</h2>
+        <p>
+          由于 App Store 政策，Shadowrocket 仅在非中国大陆区（如美区、日区、港区等）App Store 上架。请使用您的海外 Apple ID 登录 App Store 搜索下载，认准开发者为 <strong>Shadow Launch Technology Limited</strong>，图标为浅蓝底色白色飞天火箭，谨防冒牌山寨应用。
+        </p>
+
+        <h2>步骤一：将环球梯订阅添加至小火箭</h2>
+        <p>
+          环球梯支持两种快速添加方式，操作极其便捷：
+        </p>
+        <ol>
+          <li>
+            <strong>方式一：一键自动导入（推荐）</strong><br>
+            使用 Safari 浏览器登录 <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer">环球梯用户中心</a>，在“便捷导入”区域点击“一键导入 Shadowrocket”。系统将自动跳转并拉起小火箭应用，直接弹出“保存”确认弹窗。
+          </li>
+          <li>
+            <strong>方式二：扫描二维码或手动链接导入</strong><br>
+            若在电脑端打开网页，可以在手机上打开小火箭，点击右上角的 <code>扫描图标 (扫一扫)</code>，直接扫描电脑屏幕上的订阅二维码；或在手机端复制订阅链接，点击小火箭右上角 <code>+ 号</code>，类型选择 <code>Subscribe</code>，在 URL 栏粘贴链接，备注填写 <code>环球梯</code> 并点击右上角“完成”。
+          </li>
+        </ol>
+        <p>
+          添加成功后，小火箭会自动下载并展开 60+ 优质专线节点列表，包括香港、台湾、新加坡、日本与美国等专线服务器。
+        </p>
+
+        <h2>步骤二：全局路由设置（至关重要）</h2>
+        <p>
+          在小火箭首页下方，有一项名为 <strong>全局路由 (Global Routing)</strong> 的核心选项，默认可能处于不同状态，请按照以下准则核对：
+        </p>
+        <ul>
+          <li>
+            <strong>配置 (Config，务必选择此项)：</strong> 相当于桌面端的“规则模式”。根据内置规则智能分流，访问微信、支付宝、网易云等国内服务完全直连不消耗流量；访问海外应用自动经由环球梯高速节点加速，体验与安全兼顾。
+          </li>
+          <li>
+            <strong>代理 (Proxy)：</strong> 全局代理模式。所有软件流量均走境外节点，容易造成国内软件定位异常或加载变慢，非特殊需求切勿开启。
+          </li>
+          <li>
+            <strong>直连 (Direct)：</strong> 停用代理，全部走本地蜂窝网络。
+          </li>
+          <li>
+            <strong>场景 (Scene)：</strong> 支持根据 Wi-Fi 名称自动切换不同策略，适合高级用户。
+          </li>
+        </ul>
+
+        <h2>步骤三：首次连接与 VPN 授权</h2>
+        <ol>
+          <li>在节点列表中，选中任意低延迟节点（例如 <code>香港01-企业专线优选</code> 或 <code>新加坡01-狮城跃迁</code>）。节点右侧出现黄色或橙色对勾即为当前生效节点。</li>
+          <li>将小火箭顶部主开关拨向 <strong>“未连接 → 已连接”</strong>。</li>
+          <li>若是首次启动，iOS 系统会弹出“Shadowrocket 想添加 VPN 配置”的系统对话框，点击 <code>允许 (Allow)</code>，并输入手机锁屏密码完成授权。</li>
+          <li>状态栏出现 <code>VPN</code> 小图标，即代表连接成功，您可以打开 YouTube、X (Twitter) 或 ChatGPT APP 测试极速响应体验。</li>
+        </ol>
+
+        <h2>步骤四：开启自动更新与切网保持稳定</h2>
+        <p>
+          为了保证您的节点始终保持最新物理通道，建议开启以下进阶特性：
+        </p>
+        <blockquote>
+          <strong>💡 开启订阅自动更新：</strong><br>
+          点击小火箭底部 <code>设置 (Settings)</code> → <code>订阅 (Subscribe)</code>，打开 <strong>“打开时更新”</strong> 与 <strong>“后台自动更新”</strong> 开关。这样每次启动应用，小火箭均会自动向环球梯同步最新低延迟路由。
+        </blockquote>
+        <p>
+          <strong>5G 与 Wi-Fi 无缝切网优化：</strong><br>
+          进入小火箭 <code>设置</code> → <code>TCP</code>，将 <code>连接复用 (Multiplex)</code> 与 <code>快速打开 (TCP Fast Open)</code> 保持开启。结合环球梯后端的 BBRv3 链路，当您从公司或家庭 Wi-Fi 走入电梯切换至 5G 基站时，正在进行的音频通话与视频流媒体可在 0 秒内平滑过渡，告别断流重试。
+        </p>
+
+        <h2>iOS 端常见疑难自查</h2>
+        <ul>
+          <li><strong>Q：小火箭连上后，所有网页都打不开？</strong><br>请检查手机系统时间是否精准；前往“设置 → 通用 → 日期与时间”开启“自动设置”。</li>
+          <li><strong>Q：ChatGPT iOS 客户端登录提示国家不受支持？</strong><br>请在小火箭节点中选择 <code>美国01~10-自由星链</code> 或 <code>新加坡01~10-狮城跃迁</code>。环球梯提供经过风控测试的干净原生住宅家庭宽带 IP，可直接秒解 OpenAI 客户端登录与额度查询。</li>
+        </ul>
+
+        <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 1rem; text-align: center;">
+          <h3 style="color: #ffffff; font-size: 1.15rem; margin-top: 0;">即刻开通环球梯，激活移动端极速体验！</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0.5rem 0 1rem;">专属 7 折优惠码 <strong>HQ66</strong> 持续生效，全平台专线直连晚高峰 0 丢包。</p>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即选购环球梯套餐 →</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- 页脚 Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo-link">
+            <img src="/assets/images/logo.png" alt="环球梯官方LOGO" class="brand-logo-img">
+            <span class="brand-title">环球梯</span>
+          </a>
+          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+        </div>
+        <div class="footer-col">
+          <h4>产品矩阵</h4>
+          <ul class="footer-nav">
+            <li><a href="/#pricing">周期订阅方案</a></li>
+            <li><a href="/#pricing">不限时流量包</a></li>
+            <li><a href="/status.html">实时服务看板</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>教程与支持</h4>
+          <ul class="footer-nav">
+            <li><a href="/tutorials/">全平台教程中心</a></li>
+            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
+            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="/articles/">技术实测专栏</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>官方社区与索引</h4>
+          <ul class="footer-nav">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
+            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
+        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
