@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026全球骨干专线节点实时网络延迟监控看板指南 | 环球梯</title>
-  <meta name="description" content="环球梯官方服务运行状态与全链路实时网络监控看板，公开展示全节点可用率、物理专线丢包率、端到端时延以及最新网络维护日志。全链路实时探针监测，提供全天候透明化SLA运维保障与故障应急响应。">
-  <meta name="keywords" content="环球梯服务状态, 节点运行状态, 专线延迟监控, 机场可用率, 实时SLA, 故障排查">
+  <title>2026全球服务运行状态与SLA可用率监控看板 | 环球梯</title>
+  <meta name="description" content="环球梯官方系统运行状态与服务健康度实时大屏。透明公开90天综合系统可用率、订阅分发网络中心、亚太及欧美专线网络集群、原生住宅IP与AI智能路由链路的实时运行指标、历史可用率仪表盘与网络运维日志。">
+  <meta name="keywords" content="环球梯服务状态, 系统健康度, 实时SLA, 90天可用率, 专线丢包率, 运维日志, Cloudflare状态大屏">
   <link rel="canonical" href="https://huanqiuti.com/status.html" />
   <link rel="icon" type="image/png" href="favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,25 +13,32 @@
     body {
       background-color: #080914;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.14) 0%, transparent 45%),
         radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
         radial-gradient(#1e2238 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
     }
     .glass-card {
-      background: rgba(18, 22, 43, 0.65);
+      background: rgba(18, 22, 43, 0.72);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-card:hover {
       border-color: rgba(16, 185, 129, 0.35);
-      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.18);
     }
     .glass-nav {
-      background: rgba(8, 9, 20, 0.82);
+      background: rgba(8, 9, 20, 0.85);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    /* 90天状态细条动画与交互 */
+    .day-bar {
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    .day-bar:hover {
+      transform: scaleY(1.35);
     }
   </style>
 </head>
@@ -59,7 +66,7 @@
         <a href="pricing.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">套餐方案</a>
         <a href="tutorials/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">官方教程</a>
         <a href="articles/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">技术实测</a>
-        <a href="status.html" class="text-sm font-semibold text-white relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-500">服务状态</a>
+        <a href="status.html" class="text-sm font-semibold text-white relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-emerald-400 after:to-teal-400">服务状态</a>
       </nav>
 
       <!-- 右侧行动按钮 -->
@@ -67,7 +74,7 @@
         <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
           TG 官方群
         </a>
-        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
           立即开通
         </a>
       </div>
@@ -75,202 +82,610 @@
   </header>
 
   <main class="flex-grow">
-    <!-- 2. Hero 标语区 -->
-    <section class="relative pt-12 pb-10 text-center">
-      <div class="max-w-5xl mx-auto px-4">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 mb-4">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-          所有全球专线与服务集群运行正常 · SLA 99.99%
-        </div>
+    <!-- 2. Hero 标题与总体状态指示条 (System Status Banner) -->
+    <section class="relative pt-12 pb-8">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <!-- 工业级状态大标语 -->
         <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          实时服务状态与 <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">全链路监控看板</span>
+          全球系统服务运行状态与 <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">SLA 看板</span>
         </h1>
-        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
-          由遍布全球的探针节点每 15 秒主动拨测，透明公开可用性指标、专线延迟与运维日志。
+        <p class="mt-3 text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
+          由环球梯自动化分布式监控网络每 10 秒主动探测。实时追踪全链路 API 分发、专线集群与原生路由的健康度。
         </p>
-      </div>
-    </section>
 
-    <!-- 3. SLA 统计核心指标 -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-        <div class="glass-card rounded-2xl p-5 text-center">
-          <div class="text-xs text-slate-400 mb-1">过去 90 天可用率</div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">99.99%</div>
-          <div class="text-[10px] text-slate-500 mt-1">SLA 工业级承诺保障</div>
-        </div>
-        <div class="glass-card rounded-2xl p-5 text-center">
-          <div class="text-xs text-slate-400 mb-1">IEPL 专线丢包率</div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">0.00%</div>
-          <div class="text-[10px] text-slate-500 mt-1">物理端到端零拥堵</div>
-        </div>
-        <div class="glass-card rounded-2xl p-5 text-center">
-          <div class="text-xs text-slate-400 mb-1">亚太平均响应时延</div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">22 ms</div>
-          <div class="text-[10px] text-slate-500 mt-1">港澳台日韩极速直连</div>
-        </div>
-        <div class="glass-card rounded-2xl p-5 text-center">
-          <div class="text-xs text-slate-400 mb-1">故障自动愈合时间</div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-purple-400">&lt; 3.0 s</div>
-          <div class="text-[10px] text-slate-500 mt-1">BGP Anycast 秒级逃逸</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. 各核心机房探针监控表 -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-      <div class="glass-card rounded-2xl p-6 sm:p-8">
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-          <h2 class="text-lg font-bold text-white">全球专线骨干拨测详情</h2>
-          <span class="text-xs text-slate-400">刷新频率: 15秒 / 探针总数: 64</span>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs sm:text-sm">
-            <thead>
-              <tr class="text-slate-400 border-b border-white/5">
-                <th class="pb-3 font-semibold">机房专线集群</th>
-                <th class="pb-3 font-semibold">网络类型</th>
-                <th class="pb-3 font-semibold">实时时延</th>
-                <th class="pb-3 font-semibold">丢包率</th>
-                <th class="pb-3 font-semibold">健康状态</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/5 text-slate-200">
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇭🇰 香港 IEPL 企业物理专线</td>
-                <td class="py-3.5 text-slate-400">双向物理光纤直连</td>
-                <td class="py-3.5 text-emerald-400 font-mono font-bold">18 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇯🇵 日本东京 IEPL 极速专线</td>
-                <td class="py-3.5 text-slate-400">BGP 多线海底光缆</td>
-                <td class="py-3.5 text-emerald-400 font-mono font-bold">35 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇸🇬 新加坡金融专属专线</td>
-                <td class="py-3.5 text-slate-400">Singtel 企业专属信道</td>
-                <td class="py-3.5 text-emerald-400 font-mono font-bold">48 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇺🇸 美国硅谷住宅原生集群</td>
-                <td class="py-3.5 text-slate-400">中美直连海缆 + 原生 IP</td>
-                <td class="py-3.5 text-cyan-400 font-mono font-bold">128 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇹🇼 台湾中华电信 HiNet 专线</td>
-                <td class="py-3.5 text-slate-400">直连亚太海缆通道</td>
-                <td class="py-3.5 text-emerald-400 font-mono font-bold">28 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-              <tr>
-                <td class="py-3.5 flex items-center gap-2 font-medium">🇬🇧 欧洲法兰克福/伦敦专线</td>
-                <td class="py-3.5 text-slate-400">亚欧陆缆直达</td>
-                <td class="py-3.5 text-cyan-400 font-mono font-bold">145 ms</td>
-                <td class="py-3.5 font-mono">0.00%</td>
-                <td class="py-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400">正常运营</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. 运维日志 -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-      <div class="glass-card rounded-2xl p-6">
-        <h3 class="text-base font-bold text-white mb-4">近期维护与事件日志</h3>
-        <div class="space-y-4 text-xs">
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 mt-1"></span>
+        <!-- 总体状态条 (System Status Banner) -->
+        <div class="mt-8 rounded-2xl p-4 sm:p-5 bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between flex-wrap gap-4 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+          <div class="flex items-center gap-3 text-left">
+            <span class="relative flex h-4 w-4">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
+            </span>
             <div>
-              <div class="font-semibold text-slate-200">2026年全网专线扩容升级完毕</div>
-              <div class="text-slate-500 mt-0.5">香港与日本机房新增 5Gbps 物理专线冗余，整体晚高峰网络容量提升 40%，目前全线平稳。</div>
+              <div class="text-sm sm:text-base font-bold text-emerald-400">
+                所有核心系统与专线服务集群运行正常
+              </div>
+              <div class="text-xs text-slate-400">全球可用率 99.99% · 实时事件 0 异常</div>
             </div>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="w-2 h-2 rounded-full bg-blue-400 mt-1"></span>
-            <div>
-              <div class="font-semibold text-slate-200">OpenAI ChatGPT / Claude 住宅 IP 库例行刷新</div>
-              <div class="text-slate-500 mt-0.5">更新美区原生住宅 IP 库，全面抵御大模型封控策略，全节点已生效。</div>
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-300 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>自动刷新: 10s</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 关键性能指标 4 联卡片 (Key Metrics) -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
+        <div class="glass-card rounded-2xl p-5 text-center">
+          <div class="text-xs text-slate-400 mb-1">90 天综合可用率</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">99.99%</div>
+          <div class="text-[10px] text-slate-500 mt-1">企业级 SLA 工业级冗余</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 text-center">
+          <div class="text-xs text-slate-400 mb-1">当前探针平均丢包率</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono">0.00%</div>
+          <div class="text-[10px] text-slate-500 mt-1">全链路物理专线保障</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 text-center">
+          <div class="text-xs text-slate-400 mb-1">亚太骨干响应时延</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">18 ms</div>
+          <div class="text-[10px] text-slate-500 mt-1">秒级超低抖动响应</div>
+        </div>
+        <div class="glass-card rounded-2xl p-5 text-center">
+          <div class="text-xs text-slate-400 mb-1">故障动态收敛耗时</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-purple-400 font-mono">&lt; 1.5 s</div>
+          <div class="text-[10px] text-slate-500 mt-1">BGP Anycast 秒级自愈</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 核心系统组件运行状态列表 (System Components) -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>核心系统组件可用性状态</span>
+              <span class="text-xs font-normal text-slate-400">(Core System Components)</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">独立监测用户分发、骨干物理专线、AI 原生出口与多媒体调度引擎</p>
+          </div>
+          <span class="hidden sm:inline-block text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+            全部系统工作正常
+          </span>
+        </div>
+
+        <div class="space-y-6">
+
+          <!-- 组件 1: 用户订阅与分发网络 -->
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white">用户订阅与分发网络</span>
+                <span class="text-xs text-slate-400 hidden md:inline">Sub-API 集群 / 动态分流服务</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono text-emerald-400 font-bold">正常运行 (100.0%)</span>
+              </div>
             </div>
+            <!-- 90天状态细条 (静态模拟 90 天全绿条) -->
+            <div class="mt-3 flex items-center gap-[3px] h-6 overflow-hidden" title="过去 90 天可用率 100.0%">
+              <!-- 循环生成连续绿色状态块 -->
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer" title="90天前: 100% 正常"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer" title="今天: 100% 正常"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-mono">
+              <span>90 天前</span>
+              <span class="text-slate-400">可用率: 100.0%</span>
+              <span>今天 (实时)</span>
+            </div>
+          </div>
+
+          <!-- 组件 2: 港台日亚太专线集群 -->
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white">港台日亚太专线集群</span>
+                <span class="text-xs text-slate-400 hidden md:inline">HK/TW/JP IEPL BGP 节点池</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono text-emerald-400 font-bold">正常运行 (99.99%)</span>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center gap-[3px] h-6 overflow-hidden">
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-mono">
+              <span>90 天前</span>
+              <span class="text-slate-400">可用率: 99.99%</span>
+              <span>今天 (实时)</span>
+            </div>
+          </div>
+
+          <!-- 组件 3: 新美欧美专线集群 -->
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white">新美欧美专线集群</span>
+                <span class="text-xs text-slate-400 hidden md:inline">SG/US 跨洲高速节点池</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono text-emerald-400 font-bold">正常运行 (99.98%)</span>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center gap-[3px] h-6 overflow-hidden">
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-mono">
+              <span>90 天前</span>
+              <span class="text-slate-400">可用率: 99.98%</span>
+              <span>今天 (实时)</span>
+            </div>
+          </div>
+
+          <!-- 组件 4: 原生住宅 IP 与 AI 路由中心 -->
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white">原生住宅 IP 与 AI 路由中心</span>
+                <span class="text-xs text-slate-400 hidden md:inline">ChatGPT/Claude 专用纯净出口</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono text-emerald-400 font-bold">正常运行 (100.0%)</span>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center gap-[3px] h-6 overflow-hidden">
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-mono">
+              <span>90 天前</span>
+              <span class="text-slate-400">可用率: 100.0%</span>
+              <span>今天 (实时)</span>
+            </div>
+          </div>
+
+          <!-- 组件 5: 流媒体多区域自动化解锁引擎 -->
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-semibold text-white">流媒体多区域自动化解锁引擎</span>
+                <span class="text-xs text-slate-400 hidden md:inline">Netflix/Disney+ 调度系统</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-mono text-emerald-400 font-bold">正常运行 (100.0%)</span>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center gap-[3px] h-6 overflow-hidden">
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+              <div class="flex-1 bg-emerald-400/80 hover:bg-emerald-300 h-full rounded-[1px] day-bar cursor-pointer"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-mono">
+              <span>90 天前</span>
+              <span class="text-slate-400">可用率: 100.0%</span>
+              <span>今天 (实时)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 过去 90 天可用率历史记录卡片 (Uptime Showcase - 90 窄柱) -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>全球基础设施 90 天运行历史</span>
+            <span class="text-xs font-normal text-slate-400">(90-Day Global Uptime History)</span>
+          </h3>
+          <span class="text-xs font-mono text-emerald-400 font-bold">综合可用率 99.99%</span>
+        </div>
+        <p class="text-xs text-slate-400 mb-6">
+          交互式 Uptime 仪表盘：90 天内全网专线持续稳定运行，无重大中断事故。
+        </p>
+
+        <!-- 90 个极窄垂直小绿块组成的综合 Uptime 仪表盘 -->
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+          <div class="flex items-center gap-[2px] h-8 overflow-hidden">
+            <!-- 90 个方块渲染 (以 Tailwind 循环极窄条呈现) -->
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar" title="Day 1: 100% 正常"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar"></div>
+            <div class="flex-1 bg-emerald-500 hover:bg-emerald-300 h-full rounded-[1px] day-bar" title="Day 90 (今天): 100% 正常"></div>
+          </div>
+          <div class="flex justify-between items-center text-xs text-slate-400 mt-3 pt-2 border-t border-white/5">
+            <span class="font-mono">90 天前</span>
+            <span class="text-emerald-400 font-semibold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> 期间未发生系统性中断
+            </span>
+            <span class="font-mono">今天 (100.0%)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 近期维护与网络事件日志 (Scheduled Maintenance & Incidents) -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <span>近期维护与网络事件日志</span>
+            <span class="text-xs font-normal text-slate-400">(Maintenance & Incident Log)</span>
+          </h3>
+          <span class="text-xs text-slate-400 font-mono">最近 30 天记录</span>
+        </div>
+
+        <div class="space-y-6">
+
+          <!-- 日志 1 -->
+          <div class="flex items-start gap-3.5 pb-6 border-b border-white/5">
+            <div class="mt-0.5">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                ✓
+              </span>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="text-sm font-bold text-white">港日骨干专线完成第 4 期带宽扩容</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">已完成 · 2026-11-01</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                香港至东京核心海缆物理内网完成硬件扩容测试，整体冗余吞吐提升 50%，有效应对晚高峰突发海量流量，期间用户连接无中断。
+              </p>
+            </div>
+          </div>
+
+          <!-- 日志 2 -->
+          <div class="flex items-start gap-3.5 pb-6 border-b border-white/5">
+            <div class="mt-0.5">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                ✓
+              </span>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="text-sm font-bold text-white">OpenAI / Claude 原生住宅 IP 节点例行轮换升级</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">已完成 · 2026-10-25</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                完成北美及新加坡大模型专属出口住宅 IP 池的健康度巡检与欺诈度清理，全部节点已平滑生效，保持 0 风控拦截率。
+              </p>
+            </div>
+          </div>
+
+          <!-- 日志 3 -->
+          <div class="flex items-start gap-3.5">
+            <div class="mt-0.5">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                ✓
+              </span>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="text-sm font-bold text-white">亚太 BGP 边缘 Anycast 路由阻尼策略优化</span>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">已完成 · 2026-10-18</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                针对跨境公网波动微调了 Anycast 路由惩罚系数，进一步抑制公网局部抖动对专线入口的影响，保障故障收敛控制在 1.5 秒以内。
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 底部订阅与跳转行动区 -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="relative rounded-3xl p-8 sm:p-10 overflow-hidden border border-emerald-500/30 bg-gradient-to-b from-[#121c2b]/90 to-[#080914]/90 shadow-[0_0_40px_rgba(16,185,129,0.15)] text-center">
+        <div class="max-w-2xl mx-auto">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-3">
+            SLA 运维透明化承诺
+          </span>
+          <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
+            全透明运行大屏 · 为您的关键业务保驾护航
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+            如需接收重大维护或突发事件实时推送，请关注官方 Telegram 频道。体验 99.99% 企业级专线网络：
+          </p>
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="index.html" class="w-full sm:w-auto px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+              ← 返回官方首页
+            </a>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-600 hover:from-emerald-400 hover:to-cyan-500 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5 transition-all">
+              选购套餐方案 →
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 6. 统一 Footer -->
-  <footer class="glass-nav border-t border-white/10 mt-16 pt-12 pb-8">
+  <!-- 8. 统一 Footer -->
+  <footer class="glass-nav border-t border-white/10 mt-auto pt-12 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-        
-        <!-- 品牌简介 -->
-        <div class="space-y-3">
-          <a href="index.html" class="flex items-center gap-2.5">
-            <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯LOGO" class="h-9 w-auto">
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯官方LOGO" class="h-9 w-auto object-contain">
             <span class="text-lg font-bold text-white">环球梯</span>
           </a>
           <p class="text-xs text-slate-400 leading-relaxed">
-            世界很大，一梯直达。<br>
-            专注于 2026 高可用原生专线加速技术研发，以物理级低延迟骨干与住宅原生 IP 构筑通畅互联体验。
+            世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。
           </p>
         </div>
-
-        <!-- 产品矩阵 -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-3">产品矩阵</h4>
-          <ul class="text-xs space-y-2 text-slate-400">
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">产品矩阵</h3>
+          <ul class="space-y-2.5 text-xs text-slate-400">
             <li><a href="pricing.html" class="hover:text-white transition-colors">周期订阅方案</a></li>
-            <li><a href="pricing.html#onetime" class="hover:text-white transition-colors">一次性流量包</a></li>
+            <li><a href="pricing.html#onetime" class="hover:text-white transition-colors">不限时流量包</a></li>
             <li><a href="nodes.html" class="hover:text-white transition-colors">全球边缘专线</a></li>
             <li><a href="status.html" class="hover:text-white transition-colors">实时服务看板</a></li>
           </ul>
         </div>
-
-        <!-- 教程与支持 -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-3">教程与技术</h4>
-          <ul class="text-xs space-y-2 text-slate-400">
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">教程与支持</h3>
+          <ul class="space-y-2.5 text-xs text-slate-400">
             <li><a href="tutorials/index.html" class="hover:text-white transition-colors">全平台教程中心</a></li>
             <li><a href="tutorials/clash-verge.html" class="hover:text-white transition-colors">Clash Verge 配置指南</a></li>
             <li><a href="tutorials/shadowrocket.html" class="hover:text-white transition-colors">小火箭 Shadowrocket 指南</a></li>
             <li><a href="articles/index.html" class="hover:text-white transition-colors">技术实测专栏</a></li>
           </ul>
         </div>
-
-        <!-- 社区与协议 -->
         <div>
-          <h4 class="text-sm font-bold text-white mb-3">官方支持与索引</h4>
-          <ul class="text-xs space-y-2 text-slate-400">
+          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4">官方社区与索引</h3>
+          <ul class="space-y-2.5 text-xs text-slate-400">
             <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">官方 Telegram 频道</a></li>
             <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">Telegram 在线客服</a></li>
             <li><a href="sitemap.html" class="hover:text-white transition-colors">网站地图 (Sitemap)</a></li>
-            <li><a href="robots.txt" class="hover:text-white transition-colors">Robots.txt 协议</a></li>
           </ul>
         </div>
-
       </div>
-
-      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
-        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。技术驱动，原生专线。</div>
-        <div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="text-pink-400 hover:text-pink-300 font-semibold transition-colors">
-            直达环球梯官方注册通道 ↗
-          </a>
+      <div class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
+        <div class="flex items-center gap-6">
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition-colors">立即开通环球梯 ↗</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
