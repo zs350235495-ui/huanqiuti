@@ -4,178 +4,245 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026全平台客户端高速节点订阅配置与分流教程指南 | 环球梯</title>
-  <meta name="description" content="环球梯官方教程中心为您系统汇总最新桌面电脑与移动手机主流客户端节点订阅配置指南。深度提供工具的基础导入指引、规则分流策略优化与常见网络故障快速排查建议，助您轻松实现无缝高速网络互联体验。">
-  <meta name="keywords" content="环球梯教程, Clash Verge教程, Shadowrocket小火箭配置, 科学上网教程, 节点订阅导入, TUN模式配置, 2026翻墙教程">
-  <link rel="canonical" href="https://huanqiuti.com/tutorials/" />
+  <meta name="description" content="环球梯官方全平台客户端安装与配置教程中心，全面覆盖苹果电脑、安卓手机与桌面端主流设备。指导订阅节点导入、规则分流配置与常见疑难故障解决，助力新手用户三分钟极速上手畅享低延迟稳定加速网络。">
+  <meta name="keywords" content="环球梯教程, 客户端配置, Clash Verge教程, Shadowrocket小火箭, 订阅导入, 节点设置">
+  <link rel="canonical" href="https://huanqiuti.com/tutorials/index.html" />
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #080914;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(236, 72, 153, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(#1e2238 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+    }
+    .glass-card {
+      background: rgba(18, 22, 43, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+    }
+    .glass-nav {
+      background: rgba(8, 9, 20, 0.82);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
 
-  <!-- 顶部导航 Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="/" class="brand-logo-link">
-        <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-        <span class="brand-title">环球梯</span>
+  <!-- 1. 顶部统一磨砂玻璃导航 Header -->
+  <header class="sticky top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- 品牌 LOGO -->
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(6,182,212,0.4)] group-hover:scale-105 transition-transform">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">环球梯</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">2026 PRO</span>
+          </div>
+          <span class="text-[11px] text-slate-400 tracking-wider">Huanqiu Ladder</span>
+        </div>
       </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li class="nav-item"><a href="/">首页</a></li>
-          <li class="nav-item"><a href="/nodes.html">节点网络</a></li>
-          <li class="nav-item"><a href="/pricing.html">套餐方案</a></li>
-          <li class="nav-item active"><a href="/tutorials/">官方教程</a></li>
-          <li class="nav-item"><a href="/articles/">技术实测</a></li>
-          <li class="nav-item"><a href="/status.html">服务状态</a></li>
-        </ul>
+      <!-- 导航链接 -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">首页</a>
+        <a href="../nodes.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">节点网络</a>
+        <a href="../pricing.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">套餐方案</a>
+        <a href="../tutorials/index.html" class="text-sm font-semibold text-white relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-500">官方教程</a>
+        <a href="../articles/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">技术实测</a>
+        <a href="../status.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">服务状态</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
-        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      <!-- 右侧行动按钮 -->
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          TG 官方群
+        </a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
+          立即开通
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- 教程中心 Hero -->
-  <section class="hero-section" style="padding: 3.5rem 0 2rem;">
-    <div class="container">
-      <div class="hero-badge-pill">
-        <span>📖 全平台全生态客户端使用指南</span>
+  <main class="flex-grow">
+    <!-- 2. Hero 标语区 -->
+    <section class="relative pt-12 pb-10 text-center">
+      <div class="max-w-5xl mx-auto px-4">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 mb-4">
+          <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+          2026 全平台客户端配置指南中心
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          极速上手 <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">全平台客户端订阅与分流</span>
+        </h1>
+        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+          手把手图文指引，三分钟完成 Clash Verge、Shadowrocket 订阅导入，解锁 4K 串流与 AI 高速访问。
+        </p>
       </div>
-      <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
-        全平台客户端订阅与极速配置指南
-      </h1>
-      <p class="hero-desc">
-        无论您使用 Windows、macOS 电脑，或是 iOS、Android 智能手机，环球梯均提供详尽的一站式极速接入文档。
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- 客户端教程矩阵 -->
-  <main class="container" style="padding-bottom: 5rem;">
-    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-      
-      <!-- Clash Verge Rev 卡片 -->
-      <div class="glass-panel feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div class="feature-icon-box" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.1);">💻</div>
-          <span style="font-size: 0.8rem; color: #38bdf8; font-weight: 700; text-transform: uppercase;">Desktop / Win & Mac</span>
-          <h2 style="font-size: 1.3rem; margin: 0.5rem 0 0.75rem; color: #ffffff;">Clash Verge 订阅与规则分流配置</h2>
-          <p style="color: #94a3b8; font-size: 0.925rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            2026 年桌面端最受欢迎的开源客户端，内置新一代 Mihomo (Clash Meta) 内核。深度支持 TUN 全局虚拟网卡模式、智能国内直连分流与订阅自动定时同步。
+    <!-- 3. 核心客户端快捷入口 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        
+        <!-- Clash Verge Rev 专栏卡片 -->
+        <a href="clash-verge.html" class="glass-card rounded-2xl p-8 block group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">Windows / macOS / Linux</span>
+            <span class="text-xs text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">查看图文指南 →</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3">Clash Verge Rev 配置指南</h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            支持内核级 TUN 虚拟网卡、自适应智能分流与规则集更新，电脑端首选高性能多协议代理客户端。
           </p>
-        </div>
-        <div>
-          <a href="/tutorials/clash-verge.html" class="btn btn-primary" style="width: 100%;">阅读完整配置教程 →</a>
-        </div>
-      </div>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">一键导入订阅</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">TUN 模式绕过大陆</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">防 DNS 污染</span>
+          </div>
+        </a>
 
-      <!-- Shadowrocket 小火箭卡片 -->
-      <div class="glass-panel feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div class="feature-icon-box" style="color: #f472b6; border-color: rgba(236, 72, 153, 0.3); background: rgba(236, 72, 153, 0.1);">📱</div>
-          <span style="font-size: 0.8rem; color: #f472b6; font-weight: 700; text-transform: uppercase;">iOS / iPhone & iPad</span>
-          <h2 style="font-size: 1.3rem; margin: 0.5rem 0 0.75rem; color: #ffffff;">Shadowrocket (小火箭) 订阅实战</h2>
-          <p style="color: #94a3b8; font-size: 0.925rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            苹果 iOS 平台霸主级轻量网络工具。全面详解一键扫码添加、订阅链接托管导入、配置规则在线更新及 5G 与 Wi-Fi 环境下的无缝漫游稳定性调优。
+        <!-- Shadowrocket 小火箭专栏卡片 -->
+        <a href="shadowrocket.html" class="glass-card rounded-2xl p-8 block group relative overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">iOS (iPhone / iPad)</span>
+            <span class="text-xs text-pink-400 font-semibold group-hover:translate-x-1 transition-transform">查看图文指南 →</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3">小火箭 Shadowrocket 指南</h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            苹果 iOS 平台轻巧流畅的代理工具，支持扫码导入订阅、规则分流配置及后台省电长连接。
           </p>
-        </div>
-        <div>
-          <a href="/tutorials/shadowrocket.html" class="btn btn-primary" style="width: 100%;">阅读完整配置教程 →</a>
-        </div>
-      </div>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">扫码即刻导入</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">按需连接 On Demand</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300">低功耗保活</span>
+          </div>
+        </a>
 
-      <!-- Android 客户端生态 -->
-      <div class="glass-panel feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div class="feature-icon-box" style="color: #34d399; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.1);">🤖</div>
-          <span style="font-size: 0.8rem; color: #34d399; font-weight: 700; text-transform: uppercase;">Mobile / Android</span>
-          <h2 style="font-size: 1.3rem; margin: 0.5rem 0 0.75rem; color: #ffffff;">Android 端快速上手指引</h2>
-          <p style="color: #94a3b8; font-size: 0.925rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            推荐使用 Clash Verge for Android 或 v2rayNG。支持一键导入订阅，开启应用分流绕过微信与国内常用银行客户端，省电保活性能卓越。
-          </p>
-        </div>
-        <div>
-          <a href="/tutorials/clash-verge.html" class="btn btn-glass" style="width: 100%;">查看 Android 配置方案 →</a>
-        </div>
       </div>
 
-    </div>
-
-    <!-- 常见排查速查表 -->
-    <div class="glass-panel" style="margin-top: 3.5rem; padding: 2.25rem;">
-      <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 1.25rem;">🛠️ 新手接入常见疑问与避坑要点</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        <div>
-          <h4 style="color: #38bdf8; font-size: 1rem; margin-bottom: 0.5rem;">1. 节点测速全部超时或显示负数？</h4>
-          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
-            95% 的原因在于设备本地系统时间偏差。TLS 1.3 与加密协议要求本地时间与国际标准时间误差不能超过 60 秒。请前往系统设置开启“自动同步时间”后重新尝试。
-          </p>
-        </div>
-        <div>
-          <h4 style="color: #f472b6; font-size: 1rem; margin-bottom: 0.5rem;">2. 开启代理后国内应用变慢或打不开？</h4>
-          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
-            请务必将客户端路由模式选择为“规则 (Rule)”分流，而非“全局 (Global)”。规则模式下，国内流量直连秒开不走代理，境外部署流量走 IEPL 专线，体验最丝滑。
-          </p>
-        </div>
-        <div>
-          <h4 style="color: #34d399; font-size: 1rem; margin-bottom: 0.5rem;">3. 如何在网页上复制并导入订阅？</h4>
-          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
-            登录环球梯用户后台，在“仪表盘”即可找到“一键导入订阅”按钮，直接呼起本地客户端；或复制通用 Clash/V2Ray 订阅链接粘贴至客户端的配置菜单中即可完成同步。
-          </p>
+      <!-- 4. 四大主流操作系统客户端推荐 -->
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <h3 class="text-lg font-bold text-white mb-6">各平台推荐客户端汇总</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="font-bold text-white text-sm mb-1">🪟 Windows</div>
+            <div class="text-slate-400 mb-3">推荐客户端：Clash Verge Rev / v2rayN</div>
+            <p class="text-slate-500 leading-relaxed">支持系统级 TUN 虚拟网卡与全局代理，游戏与科研软件无缝加速。</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="font-bold text-white text-sm mb-1">🍎 macOS</div>
+            <div class="text-slate-400 mb-3">推荐客户端：Clash Verge / ClashX Meta</div>
+            <p class="text-slate-500 leading-relaxed">完美适配 Apple Silicon M 系列芯片，原生菜单栏悬浮与优雅暗黑模式。</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="font-bold text-white text-sm mb-1">📱 iOS / iPadOS</div>
+            <div class="text-slate-400 mb-3">推荐客户端：Shadowrocket / Loon</div>
+            <p class="text-slate-500 leading-relaxed">支持美区 App Store 快速安装，多协议原生支持，极简低耗电。</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="font-bold text-white text-sm mb-1">🤖 Android</div>
+            <div class="text-slate-400 mb-3">推荐客户端：Clash Meta for Android / v2rayNG</div>
+            <p class="text-slate-500 leading-relaxed">开源无广告，支持分应用代理、绕过局域网与国内大陆直连。</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- 5. 常见问题 FAQ -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <h3 class="text-lg font-bold text-white mb-6">新手常见疑难排查</h3>
+        <div class="space-y-4 text-xs">
+          <div class="border-b border-white/5 pb-4">
+            <div class="font-bold text-white text-sm mb-1">Q: 订阅链接在客户端更新失败提示 404 或超时？</div>
+            <div class="text-slate-400 leading-relaxed">A: 请确保复制的是完整的订阅 URL，避免有多余空格；若网络阻断可尝试开启代理后再更新，或在用户中心重置订阅节点密钥。</div>
+          </div>
+          <div class="border-b border-white/5 pb-4">
+            <div class="font-bold text-white text-sm mb-1">Q: 节点测速显示超时或全红，但可以正常上网？</div>
+            <div class="text-slate-400 leading-relaxed">A: 部分地区运营商屏蔽了 ICMP Ping 探测包，客户端测速超时并不代表不可用；请将分流切换为【规则模式】或【全局模式】直接访问 google.com 验证。</div>
+          </div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Q: 为什么访问国内网站变慢或者无法打开？</div>
+            <div class="text-slate-400 leading-relaxed">A: 请检查客户端是否误开启了【全局代理】；建议始终保持为【规则分流 (Rule)】模式，使大陆 IP 和域名直接直连访问。</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- 页脚 Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="brand-logo-link">
-            <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-            <span class="brand-title">环球梯</span>
+  <!-- 6. 统一 Footer -->
+  <footer class="glass-nav border-t border-white/10 mt-16 pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- 品牌简介 -->
+        <div class="space-y-3">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯LOGO" class="h-9 w-auto">
+            <span class="text-lg font-bold text-white">环球梯</span>
           </a>
-          <p>世界很大，一梯直达。环球梯官方技术团队为您提供专业、安全、高速的全球互联加速解决方案。</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            世界很大，一梯直达。<br>
+            专注于 2026 高可用原生专线加速技术研发，以物理级低延迟骨干与住宅原生 IP 构筑通畅互联体验。
+          </p>
         </div>
-        <div class="footer-col">
-          <h4>产品矩阵</h4>
-          <ul class="footer-nav">
-            <li><a href="/pricing.html">周期订阅方案</a></li>
-            <li><a href="/pricing.html#onetime">不限时流量包</a></li>
-            <li><a href="/nodes.html">全球边缘专线</a></li>
-            <li><a href="/status.html">实时服务看板</a></li>
+
+        <!-- 产品矩阵 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">产品矩阵</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="../pricing.html" class="hover:text-white transition-colors">周期订阅方案</a></li>
+            <li><a href="../pricing.html#onetime" class="hover:text-white transition-colors">一次性流量包</a></li>
+            <li><a href="../nodes.html" class="hover:text-white transition-colors">全球边缘专线</a></li>
+            <li><a href="../status.html" class="hover:text-white transition-colors">实时服务看板</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>教程与支持</h4>
-          <ul class="footer-nav">
-            <li><a href="/tutorials/">全平台教程中心</a></li>
-            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
-            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
-            <li><a href="/articles/">技术实测专栏</a></li>
+
+        <!-- 教程与支持 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">教程与技术</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="../tutorials/index.html" class="hover:text-white transition-colors">全平台教程中心</a></li>
+            <li><a href="../tutorials/clash-verge.html" class="hover:text-white transition-colors">Clash Verge 配置指南</a></li>
+            <li><a href="../tutorials/shadowrocket.html" class="hover:text-white transition-colors">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="../articles/index.html" class="hover:text-white transition-colors">技术实测专栏</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>官方社区与索引</h4>
-          <ul class="footer-nav">
-            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
-            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
-            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+
+        <!-- 社区与协议 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">官方支持与索引</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">Telegram 在线客服</a></li>
+            <li><a href="../sitemap.html" class="hover:text-white transition-colors">网站地图 (Sitemap)</a></li>
+            <li><a href="../robots.txt" class="hover:text-white transition-colors">Robots.txt 协议</a></li>
           </ul>
         </div>
+
       </div>
-      <div class="footer-bottom">
-        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
-        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。技术驱动，原生专线。</div>
+        <div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="text-pink-400 hover:text-pink-300 font-semibold transition-colors">
+            直达环球梯官方注册通道 ↗
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
 </body>
 </html>

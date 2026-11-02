@@ -8,503 +8,459 @@
   <meta name="keywords" content="环球梯价格, 环球梯套餐, 环球梯优惠码, 不限时流量包, 机场价格表, 科学上网套餐, 原生住宅IP价格">
   <link rel="canonical" href="https://huanqiuti.com/pricing.html" />
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #080914;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(#1e2238 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+    }
+    .glass-card {
+      background: rgba(18, 22, 43, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(236, 72, 153, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.2);
+    }
+    .glass-nav {
+      background: rgba(8, 9, 20, 0.82);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col font-sans selection:bg-pink-500 selection:text-white">
 
-  <!-- 顶部统一导航 Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="/" class="brand-logo-link">
-        <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-        <span class="brand-title">环球梯</span>
+  <!-- 1. 顶部统一磨砂玻璃导航 Header -->
+  <header class="sticky top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- 品牌 LOGO -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯官方LOGO" class="h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(6,182,212,0.4)] group-hover:scale-105 transition-transform">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">环球梯</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">2026 PRO</span>
+          </div>
+          <span class="text-[11px] text-slate-400 tracking-wider">Huanqiu Ladder</span>
+        </div>
       </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li class="nav-item"><a href="/">首页</a></li>
-          <li class="nav-item"><a href="/nodes.html">节点网络</a></li>
-          <li class="nav-item active"><a href="/pricing.html">套餐方案</a></li>
-          <li class="nav-item"><a href="/tutorials/">官方教程</a></li>
-          <li class="nav-item"><a href="/articles/">技术实测</a></li>
-          <li class="nav-item"><a href="/status.html">服务状态</a></li>
-        </ul>
+      <!-- 导航链接 -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">首页</a>
+        <a href="nodes.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">节点网络</a>
+        <a href="pricing.html" class="text-sm font-semibold text-white relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-500">套餐方案</a>
+        <a href="tutorials/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">官方教程</a>
+        <a href="articles/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">技术实测</a>
+        <a href="status.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">服务状态</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
-        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      <!-- 右侧行动按钮 -->
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          TG 官方群
+        </a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
+          立即开通
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- 套餐方案 Hero -->
-  <section class="hero-section" style="padding: 3.5rem 0 2rem;">
-    <div class="container">
-      <div class="hero-badge-pill">
-        <span>💎 透明公开 · 无任何隐藏资费 · 7天服务保障</span>
-      </div>
-      <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
-        官方套餐方案价格表与选购指南
-      </h1>
-      <p class="hero-desc">
-        无论您是轻度科研、追剧娱乐、跨境办公团队还是极客工作室，环球梯均提供最契合的物理专线接入方案。
-      </p>
-    </div>
-  </section>
+  <main class="flex-grow">
+    <!-- 2. Hero 标语区 -->
+    <section class="relative pt-12 pb-10 text-center">
+      <div class="max-w-5xl mx-auto px-4">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-300 border border-pink-500/30 mb-4">
+          <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+          2026 全周期订阅与按量流量计费方案
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          透明灵活的 <span class="bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">套餐订阅矩阵</span>
+        </h1>
+        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+          从学生轻量学习到企业海量并发，全系标配 IEPL 原生专线与住宅原生 IP，无隐藏消费，支持随开随用。
+        </p>
 
-  <!-- 优惠码浮动提醒横幅 -->
-  <section class="container" style="margin-bottom: 2.5rem;">
-    <div class="coupon-alert-box">
-      <div>
-        <div style="font-size: 1.05rem; font-weight: 700; color: #ffffff;">🎁 官方新客专属特权：全周期 7 折循环优惠券已激活</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 0.25rem;">结账时输入专属优惠码即享 7 折循环优惠，月付、季付、年付均长期有效</div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <span class="coupon-tag-badge">HQ66</span>
-        <button class="btn btn-primary" id="copyCouponBtn" style="padding: 0.45rem 1rem; font-size: 0.85rem;">复制优惠码</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 套餐矩阵主区域 -->
-  <main class="container" style="padding-bottom: 5rem;">
-    
-    <!-- 分类 Tab 切换 -->
-    <div style="text-align: center;">
-      <div class="pricing-tabs">
-        <button class="tab-btn category-tab active" data-target="recurring-plans">周期订阅矩阵 (推荐)</button>
-        <button class="tab-btn category-tab" data-target="onetime-plans">一次性不限时流量包</button>
-      </div>
-    </div>
-
-    <!-- 周期计费 Tab (月付/季付/半年/年付) -->
-    <div id="recurring-plans" class="pricing-grid-group">
-      <div style="display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
-        <button class="btn btn-glass cycle-btn active" data-cycle="monthly">月付方案</button>
-        <button class="btn btn-glass cycle-btn" data-cycle="quarterly">季付 (9折)</button>
-        <button class="btn btn-glass cycle-btn" data-cycle="semiannual">半年付 (85折)</button>
-        <button class="btn btn-glass cycle-btn" data-cycle="annual">年付 (8折爆省)</button>
-      </div>
-
-      <div class="pricing-grid">
-        <!-- 1. 环球学生套餐 -->
-        <div class="glass-panel pricing-card" data-price-monthly="8.00" data-special-annual="true">
-          <span class="card-top-tag" style="background: rgba(56, 189, 248, 0.85);">学生特惠</span>
-          <div>
-            <h3 class="plan-title">环球学生套餐</h3>
-            <p class="plan-desc">适合轻度学术查询、文献下载与个人日常轻量通讯需求</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">96.00</span>
-              <span class="plan-cycle">/ 年 (40GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">40GB / 月</span>
-              <span class="plan-pill">3台并发</span>
-              <span class="plan-pill">不限速</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 适合轻度使用与学术科研用户</li>
-              <li><span class="check-icon">✓</span> 每月 40GB 高速 IEPL 专线流量</li>
-              <li><span class="check-icon">✓</span> 支持 3 台设备同时在线</li>
-              <li><span class="check-icon">✓</span> 流量每月周期自动重置刷新</li>
-              <li><span class="check-icon">✓</span> 解锁常用流媒体与日常 AI 工具</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-
-        <!-- 2. 环球微享 -->
-        <div class="glass-panel pricing-card" data-price-monthly="12.00">
-          <div>
-            <h3 class="plan-title">环球微享</h3>
-            <p class="plan-desc">网页浏览、社交推特与即时通讯加速的高性价比之选</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">12.00</span>
-              <span class="plan-cycle">/ 月起 (70GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">70GB / 月</span>
-              <span class="plan-pill">3台并发</span>
-              <span class="plan-pill">全节点可用</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 网页浏览与即时通讯首选</li>
-              <li><span class="check-icon">✓</span> 每月 70GB 企业级专线流量</li>
-              <li><span class="check-icon">✓</span> 支持 3 台设备多端并发使用</li>
-              <li><span class="check-icon">✓</span> 流量每月周期自动重置</li>
-              <li><span class="check-icon">✓</span> 支持 ChatGPT 基础对话与社交媒体</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-
-        <!-- 3. 环球轻享 -->
-        <div class="glass-panel pricing-card" data-price-monthly="21.00">
-          <div>
-            <h3 class="plan-title">环球轻享</h3>
-            <p class="plan-desc">进阶个人用户首选，日常轻松畅享 1080P/4K 高清流媒体</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">21.00</span>
-              <span class="plan-cycle">/ 月起 (130GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">130GB / 月</span>
-              <span class="plan-pill">3台并发</span>
-              <span class="plan-pill">流媒体全绿</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 进阶个人高频使用推荐</li>
-              <li><span class="check-icon">✓</span> 每月 130GB 极速物理专线流量</li>
-              <li><span class="check-icon">✓</span> 3 台设备无缝并发登录</li>
-              <li><span class="check-icon">✓</span> 解锁 Netflix、Disney+ 4K 播放</li>
-              <li><span class="check-icon">✓</span> 多地区线路智能路由选择</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-
-        <!-- 4. 环球畅游 -->
-        <div class="glass-panel pricing-card" data-price-monthly="39.00">
-          <div>
-            <h3 class="plan-title">环球畅游</h3>
-            <p class="plan-desc">适合海外日常办公、代码同步与多设备协同高吞吐场景</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">39.00</span>
-              <span class="plan-cycle">/ 月起 (260GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">260GB / 月</span>
-              <span class="plan-pill">5台并发</span>
-              <span class="plan-pill">优质专线</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 适合远程办公与多设备并发</li>
-              <li><span class="check-icon">✓</span> 每月 260GB 充沛专线流量</li>
-              <li><span class="check-icon">✓</span> 支持 5 台设备同时在线使用</li>
-              <li><span class="check-icon">✓</span> 晚高峰物理专线优先调度通道</li>
-              <li><span class="check-icon">✓</span> 轻松支持 Claude 3.5 Sonnet 大量代码交互</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-
-        <!-- 5. 环球进阶 (🔥 热销爆款) -->
-        <div class="glass-panel pricing-card featured" data-price-monthly="52.00">
-          <span class="card-top-tag">🔥 热销爆款</span>
-          <div>
-            <h3 class="plan-title">环球进阶</h3>
-            <p class="plan-desc">超人气爆款！4K/8K 超清秒开与原生住宅 IP 顶配待遇</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">52.00</span>
-              <span class="plan-cycle">/ 月起 (420GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill" style="background: rgba(236, 72, 153, 0.2); color: #f472b6; border-color: rgba(236, 72, 153, 0.4);">420GB / 月</span>
-              <span class="plan-pill">6台并发</span>
-              <span class="plan-pill">4K秒开</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon" style="color: #f472b6;">✓</span> <strong>热销明星</strong>：4K/8K 高清原画秒开与大文件极速</li>
-              <li><span class="check-icon" style="color: #f472b6;">✓</span> 每月 420GB 海量物理 IEPL 专线流量</li>
-              <li><span class="check-icon" style="color: #f472b6;">✓</span> 支持 6 台设备高速多端并发</li>
-              <li><span class="check-icon" style="color: #f472b6;">✓</span> 独享原生住宅 IP 池，AI 与流媒体全解锁</li>
-              <li><span class="check-icon" style="color: #f472b6;">✓</span> 专属高级 VIP 技术响应与优先通道</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary plan-action-btn">立即开通热销爆款 (7折码: HQ66) →</a>
-        </div>
-
-        <!-- 6. 环球尊享 -->
-        <div class="glass-panel pricing-card" data-price-monthly="69.00">
-          <div>
-            <h3 class="plan-title">环球尊享</h3>
-            <p class="plan-desc">家庭全员共享、高画质追剧党与重度网络玩家首选方案</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">69.00</span>
-              <span class="plan-cycle">/ 月起 (600GB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">600GB / 月</span>
-              <span class="plan-pill">10台并发</span>
-              <span class="plan-pill">重度专享</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 适合家庭共享及高流量重度需求</li>
-              <li><span class="check-icon">✓</span> 每月 600GB 充沛专线流量</li>
-              <li><span class="check-icon">✓</span> 宽松支持 10 台设备同时在线</li>
-              <li><span class="check-icon">✓</span> 游戏联机低延迟原生链路优先</li>
-              <li><span class="check-icon">✓</span> 晚高峰物理专线带宽保底</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-
-        <!-- 7. 环球极客 -->
-        <div class="glass-panel pricing-card" data-price-monthly="128.00">
-          <div>
-            <h3 class="plan-title">环球极客</h3>
-            <p class="plan-desc">工作室、跨境电商团队与海量数据吞吐极客大户专享</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">128.00</span>
-              <span class="plan-cycle">/ 月起 (1.2TB/月)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">1.2TB / 月</span>
-              <span class="plan-pill">15台并发</span>
-              <span class="plan-pill">顶级算力支持</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 大户深度专享，跨境团队协作旗舰</li>
-              <li><span class="check-icon">✓</span> 每月 1.2TB (1200GB) 超大海量流量</li>
-              <li><span class="check-icon">✓</span> 支持 15 台设备超高并发</li>
-              <li><span class="check-icon">✓</span> 优先调取独享原生住宅 IP 资源</li>
-              <li><span class="check-icon">✓</span> 7×24H 专人运维技术支持保障</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">立即订阅 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 一次性不限时流量包 -->
-    <div id="onetime-plans" class="pricing-grid-group" style="display: none;">
-      <div class="pricing-grid">
-        <!-- 1. 环球备用包 -->
-        <div class="glass-panel pricing-card">
-          <div>
-            <h3 class="plan-title">环球备用包</h3>
-            <p class="plan-desc">一次购买长期有效，适合差旅应急与第二备用梯</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">39.00</span>
-              <span class="plan-cycle">/ 一次性 (50GB 不限时)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">50GB 不限时</span>
-              <span class="plan-pill">3台并发</span>
-              <span class="plan-pill">永不过期</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 按量计费，不限使用期限</li>
-              <li><span class="check-icon">✓</span> 50GB 纯高速 IEPL 专线流量</li>
-              <li><span class="check-icon">✓</span> 永不清零，用完为止</li>
-              <li><span class="check-icon">✓</span> 差旅应急与临时防失联利器</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">购买备用包 →</a>
-        </div>
-
-        <!-- 2. 环球随行包 -->
-        <div class="glass-panel pricing-card">
-          <div>
-            <h3 class="plan-title">环球随行包</h3>
-            <p class="plan-desc">随行无忧，适合低频出差与轻度外贸通讯用户</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">99.00</span>
-              <span class="plan-cycle">/ 一次性 (160GB 不限时)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">160GB 不限时</span>
-              <span class="plan-pill">5台并发</span>
-              <span class="plan-pill">全节点通用</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 不按月清零，长期稳定有效</li>
-              <li><span class="check-icon">✓</span> 160GB 充沛专线高速流量</li>
-              <li><span class="check-icon">✓</span> 宽松支持 5 台设备并发</li>
-              <li><span class="check-icon">✓</span> 完整解锁全球流媒体与 AI 工具</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">购买随行包 →</a>
-        </div>
-
-        <!-- 3. 环球灵活包 -->
-        <div class="glass-panel pricing-card">
-          <div>
-            <h3 class="plan-title">环球灵活包</h3>
-            <p class="plan-desc">大容量长效流量池，自由调度，免除月度续费焦虑</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">299.00</span>
-              <span class="plan-cycle">/ 一次性 (500GB 不限时)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">500GB 不限时</span>
-              <span class="plan-pill">8台并发</span>
-              <span class="plan-pill">高性价比</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 500GB 超大专线流量终身有效</li>
-              <li><span class="check-icon">✓</span> 支持 8 台设备多端灵活并发</li>
-              <li><span class="check-icon">✓</span> 晚高峰物理专线优先调度权限</li>
-              <li><span class="check-icon">✓</span> 适合跨年度长期自由使用的团队</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass plan-action-btn">购买灵活包 →</a>
-        </div>
-
-        <!-- 4. 环球海量包 -->
-        <div class="glass-panel pricing-card">
-          <span class="card-top-tag" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">海量旗舰</span>
-          <div>
-            <h3 class="plan-title">环球海量包</h3>
-            <p class="plan-desc">1.5TB 超巨量物理专线池，极客大户一次性终极之选</p>
-            <div class="plan-price-wrap">
-              <span class="plan-currency">¥</span>
-              <span class="plan-amount">688.00</span>
-              <span class="plan-cycle">/ 一次性 (1.5TB 不限时)</span>
-            </div>
-            <div class="plan-pill-group">
-              <span class="plan-pill">1.5TB 不限时</span>
-              <span class="plan-pill">12台并发</span>
-              <span class="plan-pill">尊享专线</span>
-            </div>
-            <ul class="plan-features">
-              <li><span class="check-icon">✓</span> 1.5TB (1500GB) 巨量流量永不清零</li>
-              <li><span class="check-icon">✓</span> 支持 12 台高并发设备无限制接入</li>
-              <li><span class="check-icon">✓</span> 全节点原生住宅 IP 最高优先级分配</li>
-              <li><span class="check-icon">✓</span> VIP 专属线路支持与网络性能保障</li>
-            </ul>
-          </div>
-          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary plan-action-btn">购买海量包 →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 服务退款保障政策 -->
-    <div class="glass-panel" style="margin-top: 3.5rem; padding: 2.25rem;">
-      <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">🛡️ 环球梯官方服务质量与退款保障政策</h3>
-      <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.25rem;">
-        我们对环球梯全节点企业级 IEPL 物理专线架构充满信心。自您购买订阅之日起 <strong>7 天内</strong>，若因我司专线链路故障导致您无法正常加速，且经技术客服排查无法在 24 小时内解决的，用户有权向在线客服申请退回未使用的剩余资费。
-      </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
-        <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border-glass);">
-          <strong style="color: #38bdf8;">✓ 晚高峰速率履约保证</strong>
-          <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.35rem;">晚高峰物理专线丢包率大于 5% 持续超 2 小时，补偿双倍流量额度。</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border-glass);">
-          <strong style="color: #34d399;">✓ 原生住宅 IP 纯净度保证</strong>
-          <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.35rem;">若遇流媒体或 AI 批量风控，系统将在 3 分钟内自动完成干净池轮转。</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--border-glass);">
-          <strong style="color: #f472b6;">✓ 随时平滑升级补差价</strong>
-          <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 0.35rem;">月度流量不足时可随时升级至更高档位，系统自动折算剩余天数补差价。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 常见购买疑问 FAQ -->
-    <div class="glass-panel" style="margin-top: 2.5rem; padding: 2.25rem;">
-      <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 1.5rem;">❓ 常见选购与支付疑问解答</h3>
-      <div class="faq-accordion" style="max-width: 100%;">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>官方支持哪些便捷支付方式？</span>
-            <span class="faq-icon">▼</span>
+        <!-- 套餐分类切换 Toggle -->
+        <div class="mt-8 inline-flex p-1.5 rounded-full bg-white/[0.04] border border-white/10">
+          <button id="tabRecurring" onclick="switchTab('recurring')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 shadow-md transition-all">
+            周期循环订阅 (7档)
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              环球梯官方收银台支持<strong>支付宝</strong>、<strong>微信支付</strong>以及主流 USDT (TRC-20) 虚拟资产结算。支付过程全程采用银行级安全加密隧道，即时秒级到账并自动下发订阅节点。
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>周期订阅与不限时流量包有何区别？我应该买哪种？</span>
-            <span class="faq-icon">▼</span>
+          <button id="tabOnetime" onclick="switchTab('onetime')" class="px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-all">
+            一次性不限时流量包 (4档)
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <strong>周期订阅</strong>（如环球进阶、环球轻享）适合日常高频使用的用户，单价极致划算，每月自动刷新流量；<strong>不限时流量包</strong>（如环球随行包、环球灵活包）则适合经常出差差旅、低频使用或作为备用梯子的用户，流量永不清零用完为止。
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>如何兑换专属 7 折循环优惠码 HQ66？</span>
-            <span class="faq-icon">▼</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              在订单结算页面找到“优惠码”输入框，填入 <code>HQ66</code> 并点击验证，账单总金额立减 30%。该优惠码属于全周期循环折扣码，后续续费同样永久生效。
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 企业定制专属通道 -->
-    <div class="glass-panel" style="margin-top: 2.5rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(56, 189, 248, 0.4);">
-      <h3 style="font-size: 1.45rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem;">🏢 需要企业大客户专线定制服务？</h3>
-      <p style="color: #94a3b8; font-size: 0.95rem; max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.7;">
-        我们为跨境电商工作室、跨国出海企业与大模型训练研发团队提供 100M~10Gbps 端到端独享物理专线带宽定制、专属独立住宅 ASN IP 广播及专属运维工单群。
-      </p>
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-cyan">
-          联系企业商务定制 (Telegram @huanqiuti8899) →
-        </a>
+    <!-- 3. 周期订阅区域 -->
+    <section id="sectionRecurring" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- 1. 学生专属 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-blue-500/20 text-blue-400 border border-blue-500/30">学生专属</span>
+              <span class="text-xs text-slate-400">100G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">学生特惠版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥9.9</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">专为学术查重、ChatGPT 论文辅助、GitHub 代码克隆打造的高性价比起步之选。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li class="flex items-center gap-2">✓ 基础 BGP + 亚太 IEPL 专线</li>
+              <li class="flex items-center gap-2">✓ 支持 2 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 最高 300Mbps 峰值速率</li>
+              <li class="flex items-center gap-2">✓ 流媒体与 ChatGPT 原生解锁</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通</a>
+        </div>
+
+        <!-- 2. 微享尝鲜 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">入门尝鲜</span>
+              <span class="text-xs text-slate-400">180G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">微享尝鲜版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥15.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">轻度跨境用户首选，日常浏览国际资讯、社交软件及 1080P 高清视频流畅不卡。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li class="flex items-center gap-2">✓ 亚太主流机房节点全覆盖</li>
+              <li class="flex items-center gap-2">✓ 支持 3 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 最高 500Mbps 物理专线带宽</li>
+              <li class="flex items-center gap-2">✓ 晚高峰智能动态负载均衡</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通</a>
+        </div>
+
+        <!-- 3. 轻享常用 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">日常高频</span>
+              <span class="text-xs text-slate-400">360G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">轻享常用版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥28.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">满足 4K 超高清追剧、TikTok 国际版运营及中度日常下载的充裕流量配置。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li class="flex items-center gap-2">✓ 物理 IEPL 双向企业内网专线</li>
+              <li class="flex items-center gap-2">✓ 支持 4 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 最高 800Mbps 瞬时超频带宽</li>
+              <li class="flex items-center gap-2">✓ 解锁 Netflix / Disney+ / YouTube</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通</a>
+        </div>
+
+        <!-- 4. 畅游主流 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-400 border border-purple-500/30">主流推荐</span>
+              <span class="text-xs text-slate-400">680G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">畅游主流版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥45.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">极客多设备、远程办公、大文件跨境同步及无忧 4K/8K 串流的畅爽体验。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li class="flex items-center gap-2">✓ 全球 30+ 节点全链路开放</li>
+              <li class="flex items-center gap-2">✓ 支持 5 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 1000Mbps 千兆物理专线接入</li>
+              <li class="flex items-center gap-2">✓ 专属住宅原生 IP 池</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通</a>
+        </div>
+
+        <!-- 5. 进阶爆款 (高亮卡片) -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative border-pink-500/50 shadow-[0_0_30px_rgba(236,72,153,0.25)]">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[10px] font-extrabold text-white bg-gradient-to-r from-pink-500 to-purple-600 shadow-md">
+            🔥 年度爆款旗舰
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-pink-500/20 text-pink-400 border border-pink-500/30">性价比之王</span>
+              <span class="text-xs text-pink-300 font-semibold">1100G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">进阶旗舰版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-black text-white">¥68.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">全功能顶配专线，海量 1.1TB 流量，畅享全节点最高 QoS 调度与晚高峰 0 丢包保障。</p>
+            <ul class="text-xs space-y-2.5 text-slate-200 border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2">✓ 最高等级 QoS 专线优先队列</li>
+              <li class="flex items-center gap-2">✓ 支持 6 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 2.5Gbps 超高速集群链路</li>
+              <li class="flex items-center gap-2">✓ Claude / ChatGPT API 无风控专线</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/30 transition-all">立即开通</a>
+        </div>
+
+        <!-- 6. 尊享大带宽 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-400 border border-amber-500/30">商务团队</span>
+              <span class="text-xs text-slate-400">2200G / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">尊享企业版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥128.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">跨境电商选品、多账号运营、海外直播推流及工作室团队协作首选。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li class="flex items-center gap-2">✓ 2.2TB 充沛大流量池</li>
+              <li class="flex items-center gap-2">✓ 支持 10 台设备同时在线</li>
+              <li class="flex items-center gap-2">✓ 跨境电商防关联原生纯净 IP</li>
+              <li class="flex items-center gap-2">✓ 专属 1 对 1 专家级客服对接</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通</a>
+        </div>
+
+        <!-- 7. 极客企业无限 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative group lg:col-span-2">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">顶级至尊</span>
+              <span class="text-xs text-slate-400">4500G (4.5TB) / 月</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">极客企业无限版</h3>
+            <div class="flex items-baseline gap-1 my-4">
+              <span class="text-3xl font-extrabold text-white">¥238.0</span>
+              <span class="text-xs text-slate-400">/ 月起</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">全网最高规格配置，4.5TB 巨量带宽，支持 20 台设备并发，满足跨境研发集群、海外 CDN 镜像拉取与持续高负载运算。</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 border-t border-white/5 pt-4">
+              <div class="flex items-center gap-2">✓ 支持 20 台设备同时并发</div>
+              <div class="flex items-center gap-2">✓ 10Gbps 超大带宽专线端口</div>
+              <div class="flex items-center gap-2">✓ 独享低风控原生住宅 IP 库</div>
+              <div class="flex items-center gap-2">✓ 7x24 小时 SLA 快速响应保障</div>
+            </div>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即开通至尊方案</a>
+        </div>
+
       </div>
-    </div>
+    </section>
 
+    <!-- 4. 一次性不限时流量包区域 -->
+    <section id="sectionOnetime" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- 体验包 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-slate-500/20 text-slate-300 border border-slate-500/30">不限到期日</span>
+            <h3 class="text-xl font-bold text-white my-3">体验轻量包</h3>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-3xl font-extrabold text-white">¥39</span>
+              <span class="text-xs text-slate-400">/ 200G 永久有效</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">备用防失联优选，永不过期，用完为止。适合偶尔查资料、出国出差临时使用。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li>✓ 全球全节点通用</li>
+              <li>✓ 不限制到期时间，无月度清零</li>
+              <li>✓ 支持 3 台设备同时使用</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即订购</a>
+        </div>
+
+        <!-- 实用包 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30">永久不限时</span>
+            <h3 class="text-xl font-bold text-white my-3">畅玩实用包</h3>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-3xl font-extrabold text-white">¥89</span>
+              <span class="text-xs text-slate-400">/ 500G 永久有效</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">半永久型按量方案，无需担心每月扣费与清零，充沛 500G 随时随地自由畅享。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li>✓ IEPL 原生专线全开</li>
+              <li>✓ 不限到期时间，无月度清零</li>
+              <li>✓ 支持 5 台设备同时使用</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即订购</a>
+        </div>
+
+        <!-- 旗舰包 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-purple-500/40">
+          <div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-pink-500/20 text-pink-300 border border-pink-500/30">海量无忧</span>
+            <h3 class="text-xl font-bold text-white my-3">旗舰海量包</h3>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-3xl font-extrabold text-white">¥169</span>
+              <span class="text-xs text-slate-400">/ 1200G (1.2TB)</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">1.2TB 永不过期流量，多端随时连接，高品质流媒体与大型游戏更新随意下。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li>✓ 最高优先级 QoS 调度</li>
+              <li>✓ 不限到期时间，无月度清零</li>
+              <li>✓ 支持 8 台设备同时使用</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 transition-all">立即订购</a>
+        </div>
+
+        <!-- 企业包 -->
+        <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">团队备用</span>
+            <h3 class="text-xl font-bold text-white my-3">极客企业包</h3>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-3xl font-extrabold text-white">¥329</span>
+              <span class="text-xs text-slate-400">/ 3000G (3TB)</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-6">企业跨境业务长效备用方案，3TB 超大容量永久有效，团队多成员协同使用无压力。</p>
+            <ul class="text-xs space-y-2.5 text-slate-300 border-t border-white/5 pt-4">
+              <li>✓ 企业级独享原生住宅 IP 池</li>
+              <li>✓ 不限到期时间，支持 15 台设备</li>
+              <li>✓ 专属工单极速服务</li>
+            </ul>
+          </div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="mt-8 block text-center py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all">立即订购</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. 选购保障与优惠 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-white/5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400 text-lg mb-3">🛡️</div>
+          <h4 class="text-sm font-bold text-white mb-1">7 天无忧保障</h4>
+          <p class="text-xs text-slate-400">服务激活 7 天内如因我方链路故障无法使用，提供快速退换与工单售后支持。</p>
+        </div>
+        <div class="glass-card rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 text-lg mb-3">🎁</div>
+          <h4 class="text-sm font-bold text-white mb-1">年付 7 折优惠码</h4>
+          <p class="text-xs text-slate-400">结账时输入官方优惠码，订阅年付周期自动立减 30%，尽享极致年费折上折。</p>
+        </div>
+        <div class="glass-card rounded-xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-lg mb-3">⚡</div>
+          <h4 class="text-sm font-bold text-white mb-1">秒级自动开通</h4>
+          <p class="text-xs text-slate-400">支持支付宝、微信与主流数字资产结算，支付成功后系统自动下发节点订阅配置。</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- 页脚 Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="brand-logo-link">
-            <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-            <span class="brand-title">环球梯</span>
+  <!-- 6. 统一 Footer -->
+  <footer class="glass-nav border-t border-white/10 mt-16 pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- 品牌简介 -->
+        <div class="space-y-3">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯LOGO" class="h-9 w-auto">
+            <span class="text-lg font-bold text-white">环球梯</span>
           </a>
-          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            世界很大，一梯直达。<br>
+            专注于 2026 高可用原生专线加速技术研发，以物理级低延迟骨干与住宅原生 IP 构筑通畅互联体验。
+          </p>
         </div>
-        <div class="footer-col">
-          <h4>产品矩阵</h4>
-          <ul class="footer-nav">
-            <li><a href="/pricing.html">周期订阅方案</a></li>
-            <li><a href="/pricing.html#onetime">不限时流量包</a></li>
-            <li><a href="/nodes.html">全球边缘专线</a></li>
-            <li><a href="/status.html">实时服务看板</a></li>
+
+        <!-- 产品矩阵 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">产品矩阵</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="pricing.html" class="hover:text-white transition-colors">周期订阅方案</a></li>
+            <li><a href="pricing.html#onetime" class="hover:text-white transition-colors">一次性流量包</a></li>
+            <li><a href="nodes.html" class="hover:text-white transition-colors">全球边缘专线</a></li>
+            <li><a href="status.html" class="hover:text-white transition-colors">实时服务看板</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>教程与支持</h4>
-          <ul class="footer-nav">
-            <li><a href="/tutorials/">全平台教程中心</a></li>
-            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
-            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
-            <li><a href="/articles/">技术实测专栏</a></li>
+
+        <!-- 教程与支持 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">教程与技术</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="tutorials/index.html" class="hover:text-white transition-colors">全平台教程中心</a></li>
+            <li><a href="tutorials/clash-verge.html" class="hover:text-white transition-colors">Clash Verge 配置指南</a></li>
+            <li><a href="tutorials/shadowrocket.html" class="hover:text-white transition-colors">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="articles/index.html" class="hover:text-white transition-colors">技术实测专栏</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>官方社区与索引</h4>
-          <ul class="footer-nav">
-            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
-            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
-            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+
+        <!-- 社区与协议 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">官方支持与索引</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">Telegram 在线客服</a></li>
+            <li><a href="sitemap.html" class="hover:text-white transition-colors">网站地图 (Sitemap)</a></li>
+            <li><a href="robots.txt" class="hover:text-white transition-colors">Robots.txt 协议</a></li>
           </ul>
         </div>
+
       </div>
-      <div class="footer-bottom">
-        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
-        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。技术驱动，原生专线。</div>
+        <div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="text-pink-400 hover:text-pink-300 font-semibold transition-colors">
+            直达环球梯官方注册通道 ↗
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    function switchTab(type) {
+      const rec = document.getElementById('sectionRecurring');
+      const one = document.getElementById('sectionOnetime');
+      const bRec = document.getElementById('tabRecurring');
+      const bOne = document.getElementById('tabOnetime');
+      if (type === 'recurring') {
+        rec.classList.remove('hidden');
+        one.classList.add('hidden');
+        bRec.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 shadow-md transition-all";
+        bOne.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-all";
+      } else {
+        rec.classList.add('hidden');
+        one.classList.remove('hidden');
+        bOne.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-pink-500 to-purple-600 shadow-md transition-all";
+        bRec.className = "px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-all";
+      }
+    }
+    if (window.location.hash === '#onetime') {
+      switchTab('onetime');
+    }
+  </script>
 </body>
 </html>

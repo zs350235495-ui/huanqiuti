@@ -4,150 +4,209 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026跨境专线与原生IP网络技术深度实测专栏指南 | 环球梯</title>
-  <meta name="description" content="环球梯技术博客专栏收录多篇高水准网络工程评测报告，深入解析企业级专线物理拓扑、原生住宅纯净度侦测、新型拥塞算法实测与海外流媒体解锁机制，为您选型高质量网络节点服务提供真实客观的技术数据依据。">
-  <meta name="keywords" content="IEPL专线评测, 原生IP实测, 环球梯实测, 跨境网络丢包率, 2026网络加速评测, ChatGPT原生IP, 流媒体解锁">
-  <link rel="canonical" href="https://huanqiuti.com/articles/" />
+  <meta name="description" content="环球梯官方技术实测与科研专栏，深度评测IEPL企业级专线、晚高峰公网中转丢包率、原生住宅IP纯净度以及流媒体解锁表现。提供全链路权威实测数据、网络拓扑图解与专业优化建议，带您深度了解真实网络架构。">
+  <meta name="keywords" content="环球梯实测, IEPL评测, 专线丢包测试, 住宅IP纯净度, ChatGPT防封, 流媒体解锁实测">
+  <link rel="canonical" href="https://huanqiuti.com/articles/index.html" />
   <link rel="icon" type="image/png" href="../favicon.png">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #080914;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(236, 72, 153, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(#1e2238 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+    }
+    .glass-card {
+      background: rgba(18, 22, 43, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(236, 72, 153, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.2);
+    }
+    .glass-nav {
+      background: rgba(8, 9, 20, 0.82);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col font-sans selection:bg-pink-500 selection:text-white">
 
-  <!-- 顶部导航 Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="/" class="brand-logo-link">
-        <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-        <span class="brand-title">环球梯</span>
+  <!-- 1. 顶部统一磨砂玻璃导航 Header -->
+  <header class="sticky top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- 品牌 LOGO -->
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="h-11 w-auto object-contain drop-shadow-[0_0_12px_rgba(6,182,212,0.4)] group-hover:scale-105 transition-transform">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">环球梯</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">2026 PRO</span>
+          </div>
+          <span class="text-[11px] text-slate-400 tracking-wider">Huanqiu Ladder</span>
+        </div>
       </a>
 
-      <nav>
-        <ul class="nav-links">
-          <li class="nav-item"><a href="/">首页</a></li>
-          <li class="nav-item"><a href="/nodes.html">节点网络</a></li>
-          <li class="nav-item"><a href="/pricing.html">套餐方案</a></li>
-          <li class="nav-item"><a href="/tutorials/">官方教程</a></li>
-          <li class="nav-item active"><a href="/articles/">技术实测</a></li>
-          <li class="nav-item"><a href="/status.html">服务状态</a></li>
-        </ul>
+      <!-- 导航链接 -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">首页</a>
+        <a href="../nodes.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">节点网络</a>
+        <a href="../pricing.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">套餐方案</a>
+        <a href="../tutorials/index.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">官方教程</a>
+        <a href="../articles/index.html" class="text-sm font-semibold text-white relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-pink-500 after:to-purple-500">技术实测</a>
+        <a href="../status.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">服务状态</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-glass">TG 官方群</a>
-        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-primary">立即开通</a>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="切换菜单">☰</button>
+      <!-- 右侧行动按钮 -->
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+          TG 官方群
+        </a>
+        <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-400 hover:to-indigo-500 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:-translate-y-0.5 transition-all">
+          立即开通
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- 专栏 Hero -->
-  <section class="hero-section" style="padding: 3.5rem 0 2rem;">
-    <div class="container">
-      <div class="hero-badge-pill">
-        <span>🔬 硬核数据 · 真实复现 · 拒绝营销夸大</span>
+  <main class="flex-grow">
+    <!-- 2. Hero 标语区 -->
+    <section class="relative pt-12 pb-10 text-center">
+      <div class="max-w-5xl mx-auto px-4">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-300 border border-pink-500/30 mb-4">
+          <span class="w-2 h-2 rounded-full bg-pink-400 animate-pulse"></span>
+          2026 网络科研与跨境专线实测专栏
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          深度评测与 <span class="bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent">硬核网络科研报告</span>
+        </h1>
+        <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+          用客观真实的数据说话，拆解 IEPL 专线机制、晚高峰 QoS 拥堵原理与原生住宅 IP 风控规避方案。
+        </p>
       </div>
-      <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.75rem);">
-        跨境网络工程与节点深度实测专栏
-      </h1>
-      <p class="hero-desc">
-        环球梯网络评测实验室基于 MTR 多径路由追踪、iperf3 物理打流与多平台风控探测工具，为您呈现真实客观的跨境传输基准。
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- 实测文章列表 -->
-  <main class="container" style="padding-bottom: 5rem;">
-    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 920px; margin: 0 auto;">
-      
-      <!-- 文章 1 -->
-      <article class="glass-panel" style="padding: 2.25rem; border-radius: 1.25rem;">
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-          <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3);">专线性能评测</span>
-          <span style="color: #64748b; font-size: 0.85rem;">2026-11-02 · 环球梯网络评测实验室</span>
-        </div>
-        <h2 style="font-size: 1.45rem; font-weight: 800; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.4;">
-          <a href="/articles/iepl-vs-transit-performance-2026.html" style="color: #ffffff; text-decoration: none;">
-            2026跨境专线IEPL与普通公网中转丢包实测对比 | 环球梯
-          </a>
-        </h2>
-        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">
-          长达 7 天连续 20:30~23:00 晚高峰全链路压测，详细对比端到端物理 IEPL 二层专线与普通公共中转在不同运营商（电信 163、联通 169、移动 CMI）下的丢包率、首包 RTT 抖动方差与 8K 蓝光流媒体卡顿耗时，附完整监控数据对比矩阵。
+    <!-- 3. 实测文章列表 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- 文章 1: IEPL vs 公网中转 -->
+        <a href="iepl-vs-transit-performance-2026.html" class="glass-card rounded-2xl p-8 block group relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30">实测对比 · 2026 报告</span>
+            <span class="text-xs text-slate-500">阅读 8 分钟</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white group-hover:text-pink-400 transition-colors mb-3 leading-snug">
+            2026 跨境专线 IEPL 与普通公网中转丢包实测对比：晚高峰性能断层解析
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            通过抓取 100,000 个 TCP 数据包，详细比对 20:00~23:00 晚高峰期间 IEPL 专线与普通公网中转的丢包率、抖动与重传开销，全面揭示断层级性能差距。
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-xs text-slate-400">
+            <span>作者：环球梯网络实验室</span>
+            <span class="text-pink-400 font-semibold group-hover:translate-x-1 transition-transform">阅读全文 →</span>
+          </div>
+        </a>
+
+        <!-- 文章 2: ChatGPT / Claude 原生 IP 纯净度 -->
+        <a href="chatgpt-claude-unlock-clean-ip-2026.html" class="glass-card rounded-2xl p-8 block group relative">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">AI 风控规避 · 权威指南</span>
+            <span class="text-xs text-slate-500">阅读 6 分钟</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-3 leading-snug">
+            2026 外服流媒体与 AI 工具原生 IP 纯净度实测：拒绝风控封号指南
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+            深度测试 FraudScore、IPQualityScore 对机房广播 IP 与家庭住宅原生 IP 的评分机制，教您如何彻底规避 ChatGPT 4o 报错与 Claude 封号风险。
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-xs text-slate-400">
+            <span>作者：环球梯安全团队</span>
+            <span class="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">阅读全文 →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 4. 技术知识库小贴士 -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div class="glass-card rounded-2xl p-6 sm:p-8">
+        <h3 class="text-base font-bold text-white mb-4">技术专栏订阅与投稿</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          环球梯实验室致力于透明化网络架构与前沿代理协议研究。本专栏文章均基于物理探针真实环境生成，禁止未经授权的恶意转载。更多深度网络论文与前沿抓包数据请关注官方 Telegram 频道推送。
         </p>
-        <div>
-          <a href="/articles/iepl-vs-transit-performance-2026.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">
-            阅读 2000 字完整技术报告 →
-          </a>
-        </div>
-      </article>
-
-      <!-- 文章 2 -->
-      <article class="glass-panel" style="padding: 2.25rem; border-radius: 1.25rem;">
-        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
-          <span style="font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3);">IP纯净度与安全</span>
-          <span style="color: #64748b; font-size: 0.85rem;">2026-11-02 · 环球梯风控对抗组</span>
-        </div>
-        <h2 style="font-size: 1.45rem; font-weight: 800; color: #ffffff; margin-bottom: 0.85rem; line-height: 1.4;">
-          <a href="/articles/chatgpt-claude-unlock-clean-ip-2026.html" style="color: #ffffff; text-decoration: none;">
-            2026外服流媒体与AI工具原生IP纯净度实测解析 | 环球梯
-          </a>
-        </h2>
-        <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">
-          全面拆解 OpenAI、Anthropic Claude 与 Netflix 等主流服务在 2026 年升级的 ASN 属性分析、IP 欺诈评分（Scamalytics Fraud Score）及住宅家庭宽带与机房 Hosting IP 的本质差别，揭开原生住宅干净 IP 的技术门槛。
-        </p>
-        <div>
-          <a href="/articles/chatgpt-claude-unlock-clean-ip-2026.html" class="btn btn-cyan" style="padding: 0.5rem 1.25rem; font-size: 0.875rem;">
-            阅读技术深度剖析 →
-          </a>
-        </div>
-      </article>
-
-    </div>
+      </div>
+    </section>
   </main>
 
-  <!-- 页脚 Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="brand-logo-link">
-            <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯官方LOGO" class="brand-logo-img">
-            <span class="brand-title">环球梯</span>
+  <!-- 5. 统一 Footer -->
+  <footer class="glass-nav border-t border-white/10 mt-16 pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- 品牌简介 -->
+        <div class="space-y-3">
+          <a href="../index.html" class="flex items-center gap-2.5">
+            <img src="../assets/images/logo.png" onerror="this.onerror=null;this.src='../logo.png';" alt="环球梯LOGO" class="h-9 w-auto">
+            <span class="text-lg font-bold text-white">环球梯</span>
           </a>
-          <p>世界很大，一梯直达。环球梯 (Huanqiu Ladder) 2026 官方科技独立站。</p>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            世界很大，一梯直达。<br>
+            专注于 2026 高可用原生专线加速技术研发，以物理级低延迟骨干与住宅原生 IP 构筑通畅互联体验。
+          </p>
         </div>
-        <div class="footer-col">
-          <h4>产品矩阵</h4>
-          <ul class="footer-nav">
-            <li><a href="/pricing.html">周期订阅方案</a></li>
-            <li><a href="/pricing.html#onetime">不限时流量包</a></li>
-            <li><a href="/nodes.html">全球边缘专线</a></li>
-            <li><a href="/status.html">实时服务看板</a></li>
+
+        <!-- 产品矩阵 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">产品矩阵</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="../pricing.html" class="hover:text-white transition-colors">周期订阅方案</a></li>
+            <li><a href="../pricing.html#onetime" class="hover:text-white transition-colors">一次性流量包</a></li>
+            <li><a href="../nodes.html" class="hover:text-white transition-colors">全球边缘专线</a></li>
+            <li><a href="../status.html" class="hover:text-white transition-colors">实时服务看板</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>教程与支持</h4>
-          <ul class="footer-nav">
-            <li><a href="/tutorials/">全平台教程中心</a></li>
-            <li><a href="/tutorials/clash-verge.html">Clash Verge 配置指南</a></li>
-            <li><a href="/tutorials/shadowrocket.html">小火箭 Shadowrocket 指南</a></li>
-            <li><a href="/articles/">技术实测专栏</a></li>
+
+        <!-- 教程与支持 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">教程与技术</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="../tutorials/index.html" class="hover:text-white transition-colors">全平台教程中心</a></li>
+            <li><a href="../tutorials/clash-verge.html" class="hover:text-white transition-colors">Clash Verge 配置指南</a></li>
+            <li><a href="../tutorials/shadowrocket.html" class="hover:text-white transition-colors">小火箭 Shadowrocket 指南</a></li>
+            <li><a href="../articles/index.html" class="hover:text-white transition-colors">技术实测专栏</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>官方社区与索引</h4>
-          <ul class="footer-nav">
-            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer">官方 Telegram 频道</a></li>
-            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer">Telegram 在线客服</a></li>
-            <li><a href="/sitemap.html">网站地图 (Sitemap)</a></li>
+
+        <!-- 社区与协议 -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-3">官方支持与索引</h4>
+          <ul class="text-xs space-y-2 text-slate-400">
+            <li><a href="https://t.me/huanqiuti88" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">官方 Telegram 频道</a></li>
+            <li><a href="https://t.me/huanqiuti8899" target="_blank" rel="nofollow noopener noreferrer" class="hover:text-white transition-colors">Telegram 在线客服</a></li>
+            <li><a href="../sitemap.html" class="hover:text-white transition-colors">网站地图 (Sitemap)</a></li>
+            <li><a href="../robots.txt" class="hover:text-white transition-colors">Robots.txt 协议</a></li>
           </ul>
         </div>
+
       </div>
-      <div class="footer-bottom">
-        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。</div>
-        <div><a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" style="color: #f472b6; text-decoration: none;">立即开通环球梯 ↗</a></div>
+
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div>© 2026 环球梯 (Huanqiu Ladder) 保留所有权利。技术驱动，原生专线。</div>
+        <div>
+          <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow noopener noreferrer" class="text-pink-400 hover:text-pink-300 font-semibold transition-colors">
+            直达环球梯官方注册通道 ↗
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="../assets/js/main.js"></script>
 </body>
 </html>
