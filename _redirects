@@ -1,0 +1,9 @@
+# ==============================================================
+# Cloudflare Pages / Netlify 301 Redirects for Huanqiu Ladder AFF
+# ==============================================================
+
+/go/huanqiuti   https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0   301!
+/go/aff         https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0   301!
+/go.html id=huanqiuti    https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0   301!
+/go.html id=tg-huanqiuti https://t.me/huanqiuti8899                           301!
+/go/*           https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0   301!

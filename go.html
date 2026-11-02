@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安全跳转中 | 环球梯官方服务节点重定向</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="环球梯官方安全外部跳转服务页面。正在为您验证并建立安全的加密网络连接通道，即将重定向至目标官方高速网络服务节点。">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #080914;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+        radial-gradient(#1e2238 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px;
+    }
+    .glass-box {
+      background: rgba(18, 22, 43, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0">
+  </noscript>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 font-sans text-slate-200">
+
+  <div class="glass-box rounded-3xl p-8 sm:p-12 max-w-md w-full text-center shadow-[0_0_50px_rgba(99,102,241,0.2)] border border-white/10">
+    <!-- 品牌标志 -->
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <img src="assets/images/logo.png" onerror="this.onerror=null;this.src='logo.png';" alt="环球梯" class="h-12 w-auto object-contain">
+      <span class="text-2xl font-black bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">环球梯</span>
+    </div>
+
+    <!-- 动态扫描/雷达波光圈 -->
+    <div class="relative w-20 h-20 mx-auto my-6 flex items-center justify-center">
+      <div class="absolute inset-0 rounded-full border-2 border-pink-500/30 animate-ping"></div>
+      <div class="absolute inset-2 rounded-full border-2 border-indigo-500/50 animate-pulse"></div>
+      <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-pink-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-pink-500/40">
+        <svg class="w-6 h-6 text-white animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="text-xl font-bold text-white mb-2">正在建立安全专线通道...</h1>
+    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+      已完成物理链路纯净度验证，即将为您重定向至环球梯官方订阅门户。
+    </p>
+
+    <!-- 备用手动直达链接 -->
+    <div class="pt-4 border-t border-white/10 text-xs text-slate-500">
+      <span>若未自动跳转，请点击</span>
+      <a id="manualLink" href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="nofollow sponsored noopener noreferrer" class="text-pink-400 hover:text-pink-300 font-semibold underline ml-1">
+        立即手动前往 ↗
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var TARGETS = {
+        'huanqiuti': 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0',
+        'aff': 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0',
+        'tg-huanqiuti': 'https://t.me/huanqiuti8899',
+        'default': 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0'
+      };
+
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id') || 'huanqiuti';
+        var targetUrl = TARGETS[id] || TARGETS['default'];
+        
+        var linkEl = document.getElementById('manualLink');
+        if (linkEl) {
+          linkEl.href = targetUrl;
+        }
+
+        setTimeout(function() {
+          window.location.replace(targetUrl);
+        }, 300);
+      } catch (e) {
+        window.location.href = TARGETS['default'];
+      }
+    })();
+  </script>
+</body>
+</html>
