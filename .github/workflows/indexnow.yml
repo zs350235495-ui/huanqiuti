@@ -1,0 +1,26 @@
+name: IndexNow Auto Submit
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    name: Submit URLs to IndexNow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Site & Verify SEO
+        run: npm run build
+
+      - name: Submit URLs to IndexNow API
+        run: npm run submit:indexnow

@@ -161,6 +161,18 @@ const robotsContent = `User-agent: *\nAllow: /\n\nSitemap: ${DOMAIN}/sitemap.xml
 fs.writeFileSync(robotsPath, robotsContent, 'utf8');
 console.log(`✅ robots.txt 校验生成完成`);
 
+// 同步 public/ 静态资源（如 IndexNow 密钥验证文件）到产物根目录
+const publicDir = path.join(__dirname, 'public');
+if (fs.existsSync(publicDir)) {
+  const publicFiles = fs.readdirSync(publicDir);
+  publicFiles.forEach(file => {
+    const src = path.join(publicDir, file);
+    const dest = path.join(__dirname, file);
+    fs.copyFileSync(src, dest);
+  });
+  console.log(`✅ 已同步 public/ 静态资产到站点根目录 (${publicFiles.length} 个文件)`);
+}
+
 if (hasErrors) {
   console.error('\n❌ 存在不符合规范的项目，请检查上方日志！');
   process.exit(1);
