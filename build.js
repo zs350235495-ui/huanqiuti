@@ -6,6 +6,8 @@ const DOMAIN = 'https://huanqiuti.com';
 
 const pages = [
   'index.html',
+  'nodes.html',
+  'pricing.html',
   'tutorials/index.html',
   'tutorials/clash-verge.html',
   'tutorials/shadowrocket.html',

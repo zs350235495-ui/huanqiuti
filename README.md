@@ -29,11 +29,13 @@
 │   ├── iepl-vs-transit-performance-2026.html    # 2000字 IEPL vs 公网中转丢包实测报告
 │   └── chatgpt-claude-unlock-clean-ip-2026.html # 原生住宅 IP 纯净度实测解析
 ├── status.html                  # 全球 60+ 核心节点实时延迟与可用性监控看板
+├── nodes.html                   # 全球边缘节点拓扑、测速数据与协议支持独立页
+├── pricing.html                 # 官方套餐方案价格表、退款政策与购买 FAQ 独立页
 ├── sitemap.html                 # 官方网站地图 (HTML 导航版)
 ├── sitemap.xml                  # 搜索引擎 XML 站点地图
 ├── robots.txt                   # 网络爬虫协议
 ├── build.js                     # 静态自动化构建与全站 SEO 语法树校验工具
-└── index.html                   # 官方主落地页
+└── index.html                   # 官方主落地页 (品牌核心介绍与精简套餐落地)
 ```
 
 ## 🛠️ 构建与校验
