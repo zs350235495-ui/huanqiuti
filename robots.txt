@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /go.html
 Allow: /
 
 Sitemap: https://huanqiutigw.com/sitemap.xml
